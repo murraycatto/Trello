@@ -29,6 +29,9 @@ $primary-font: Helvetica, sans-serif;
     margin-left: auto;
     margin-right: auto;
     font-weight: 100;
+    a{
+      color: #fff;
+    }
   }
   .secondary-signup-link{
     background: $button2-color;
@@ -97,6 +100,22 @@ $primary-font: Helvetica, sans-serif;
       border-radius: 10px;
       font-weight: bold;
       font-size: 20px;
+    }
+    .boards-link{
+      background: $button1-color;
+      color: #fff;
+      width: 200px;
+      text-decoration: none;
+      display: block;
+      float: right;
+      text-align: center;
+      height: 18px;
+      padding: 10px;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+      border-radius: 7px;
+      margin-right: 20px;
+      font-size: 17px;
+      font-weight: 100;
     }
 
   }

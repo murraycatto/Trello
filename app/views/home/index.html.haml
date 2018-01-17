@@ -3,8 +3,11 @@
     = link_to root_path, class: "trello-logo-white" do
       = image_tag('trello-logo-white')
     .links-container
-      = link_to "Sign Up", new_user_registration_path, class: "signup-link"
-      = link_to "Log In", new_user_session_path, class: "login-link"
+      -if user_signed_in?
+        = link_to "Go to Your Boards", new_user_registration_path, class: "boards-link"
+      -else
+        = link_to "Sign Up", new_user_registration_path, class: "signup-link"
+        = link_to "Log In", new_user_session_path, class: "login-link"
   %h1
     Trello lets you work more
     %br
@@ -13,7 +16,15 @@
     Trello’s boards, lists, and cards enable you to organize and prioritize
     %br
     your projects in a fun, flexible and rewarding way.
-  = link_to " Sign Up – It’s Free. .", new_user_registration_path, class: "secondary-signup-link"
-  %p.secondary-login-link
-    Already use Trello?
-    = link_to "Log in.", new_user_session_path
+    - if user_signed_in?
+      -# Logout link for debug purposes 
+      -# =link_to('Logout', destroy_user_session_path, method: :delete)
+      %br
+      %br
+      Hey, you’re logged in!
+      = link_to "Go to your boards.", new_user_session_path
+  - unless user_signed_in?
+    = link_to " Sign Up – It’s Free. .", new_user_registration_path, class: "secondary-signup-link"
+    %p.secondary-login-link
+      Already use Trello?
+      = link_to "Log in.", new_user_session_path
