@@ -5,7 +5,7 @@ $primary-color: #0078c0;
 $button1-color: #0166a3;
 $button2-color: #5cb248;
 $light-color: #fff;
-$primary-font:    Helvetica, sans-serif;
+$primary-font: Helvetica, sans-serif;
 .home-page-wrapper{
   background: $primary-color;
   height:100vh;
@@ -22,53 +22,82 @@ $primary-font:    Helvetica, sans-serif;
 
   }
   p{
-    margin-bottom: 10vh;
+    margin-bottom: 7vh;
     text-align: center;
     font-size: 20px;
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
+    font-weight: 100;
   }
-}
-
-.trello-logo-white{
-  padding: 30px;
-  img{
-    margin-top: 20px;
-    max-width: 150px;
-  }
-}
-
-.links-container{
-  width: 25%;
-  float: right;
-  padding: 20px;
-  .login-link{
-    background: $button1-color;
-    color: #fff;
-    width: 90px;
-    text-decoration: none;
-    display: block;
-    float: right;
-    text-align: center;
-    height: 19px;
-    padding: 10px;
-    box-shadow: 0 2px 0 rgba(0,0,0,0.3);
-    border-radius: 10px;
-    margin-right: 20px;
-  }
-  .signup-link{
+  .secondary-signup-link{
     background: $button2-color;
     color: #fff;
-    width: 90px;
+    width: 200px;
     text-decoration: none;
     display: block;
-    float: right;
     text-align: center;
-    height: 19px;
-    padding: 10px;
+    height: 17px;
+    padding: 15px;
     box-shadow: 0 2px 0 rgba(0,0,0,0.3);
-    border-radius: 10px;
+    border-radius: 7px;
     font-weight: bold;
+    font-size: 19px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  p.secondary-login-link{
+    margin-top: 10vh;
+    font-size: 16px;
+    font-weight: 350;
+    a{
+      color: #fff;
+      font-weight: 150;
+
+    }
+  }
+  .trello-logo-white{
+    padding: 30px;
+    img{
+      margin-top: 20px;
+      max-width: 150px;
+    }
+  }
+
+  .links-container{
+    width: 25%;
+    float: right;
+    padding: 20px;
+    .login-link{
+      background: $button1-color;
+      color: #fff;
+      width: 90px;
+      text-decoration: none;
+      display: block;
+      float: right;
+      text-align: center;
+      height: 19px;
+      padding: 12px;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+      border-radius: 10px;
+      margin-right: 20px;
+      font-size: 20px;
+    }
+    .signup-link{
+      background: $button2-color;
+      color: #fff;
+      width: 90px;
+      text-decoration: none;
+      display: block;
+      float: right;
+      text-align: center;
+      height: 19px;
+      padding: 12px;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.3);
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
   }
 }

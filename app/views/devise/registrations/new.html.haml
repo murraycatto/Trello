@@ -1,21 +1,29 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.devise-container
+  .devise-form-container
+    %h1 Create a Trello Account
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = devise_error_messages!
+      .field
+        = f.label 'Name'
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "e.g., sulu@starfleet.fed"
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "e.g., Hikaru Sulu"
+
+      .field
+        = f.label :password
+        - if @minimum_password_length
+          %em
+            (#{@minimum_password_length} characters minimum)
+        %br/
+        = f.password_field :password, autocomplete: "off", placeholder: "e.g., ••••••••••••"
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "off", placeholder: "e.g., ••••••••••••"
+      .actions
+        = f.submit "Create New Account", class: "signup-button"
+      .clear-10 
+    = render "devise/shared/links"

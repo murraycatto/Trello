@@ -6,6 +6,14 @@
       = link_to "Sign Up", new_user_registration_path, class: "signup-link"
       = link_to "Log In", new_user_session_path, class: "login-link"
   %h1
-    Trello lets you work more collaboratively and get more done.
+    Trello lets you work more
+    %br
+    collaboratively and get more done.
   %p
-    Trello’s boards, lists, and cards enable you to organize and prioritize your projects in a fun, flexible and rewarding way.
+    Trello’s boards, lists, and cards enable you to organize and prioritize
+    %br
+    your projects in a fun, flexible and rewarding way.
+  = link_to " Sign Up – It’s Free. .", new_user_registration_path, class: "secondary-signup-link"
+  %p.secondary-login-link
+    Already use Trello?
+    = link_to "Log in.", new_user_session_path

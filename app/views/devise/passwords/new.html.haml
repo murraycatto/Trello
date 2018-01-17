@@ -1,10 +1,17 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.devise-container
+  .devise-form-container
+    %h1 Reset Your Trello Password
+    %p
+      Submit your email address and we’ll send you a link to reset your password.
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+      = devise_error_messages!
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .actions
+        = f.submit "Submit", class: "login-button"
+    .clear-10
+    %p.psst
+      Psst … If it's any help, Trello requires that passwords be at least 8 characters long and does not require you to include numbers or uppercase letters. If that jogs your memory, you can
+      = link_to " try logging in again..", new_session_path(resource_name)
