@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @board.name
+%p
+  %b User:
+  = @board.user_id
+%p
+  %b Color:
+  = @board.color_id
+%p
+  %b Project:
+  = @board.project_id
+
+= link_to 'Edit', edit_board_path(@board)
+\|
+= link_to 'Back', boards_path
