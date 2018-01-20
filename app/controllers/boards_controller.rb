@@ -1,7 +1,9 @@
 class BoardsController < ApplicationController
-  before_action  :set_board, only: [:show, :edit, :update, :destroy]
+  before_action :set_board, only: [:show,:updated,:destroy]
+  before_action :set_boards, only: [:index, :show]
+
   before_action :authenticate_user!
-  before_action :set_boards
+  before_action :set_teams, only: [:index, :show]
 
   def index
   end
@@ -9,16 +11,14 @@ class BoardsController < ApplicationController
   def show
   end
 
-  def new
-    @board = Board.new
-  end
 
-  def edit
-  end
 
   def create
     @board = Board.new(board_params)
+    @board.user = current_user
+    @board.color = Color.first
 
+    @board.project = Project.find(params.require(:board)[:project])
     respond_to do |format|
       if @board.save
         format.html { redirect_to @board, notice: 'Board was successfully created.' }
@@ -47,15 +47,16 @@ class BoardsController < ApplicationController
   end
 
   private
-    def set_boards
-      @boards = Board.where(user: current_user)
-    end
-    def set_board
-      @board = Board.find(params[:id])
+    def set_teams
+      @teams = Team.where(user: current_user)
     end
 
     def set_boards
-      @boards = Board.where(params[:id])
+      @boards = Board.where(user: current_user)
+    end
+
+    def set_board
+      @board = Board.where(id: params[:id], user: current_user)
     end
 
     def board_params

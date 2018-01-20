@@ -1,3 +1,58 @@
-// Place all the styles related to the Boards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.boards-wrapper{
+  max-width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5vh;
+  display: block;
+
+
+}
+
+.team-holder{
+  .fa.fa-user-o{
+    float: left;
+    margin-right: 10px;
+    margin-top: -3px;
+    font-size: 20px;
+  }
+  .team-name{
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+
+.create-board-holder{
+  width: 25%;
+  float: left;
+  .create-board-item{
+    background-color: #e2e4e6;
+    height: 100px;
+    color: #838c91;
+    font-weight: 400;
+    text-align: center;
+    font-size: 15px;
+    line-height: 100px;
+    border-radius: 2px;
+  }
+  .create-board-item:hover{
+    cursor: pointer;
+    background-color: #d6dadc;
+    color: #4d4d4d;
+  }
+}
+
+.create-new-team-holder{
+  .create-new-team-item{
+    color: #838c91;
+    text-decoration: underline;
+    text-decoration: underline;
+    float: left;
+    padding: 10px;
+    border-radius: 2px;
+  }
+  .create-new-team-item:hover{
+    background: #d6dadc;
+    color: #4d4d4d;
+    cursor: pointer;
+  }
+}

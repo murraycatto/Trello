@@ -29,6 +29,18 @@ body{
   clear: both;
   height: 10px;
 }
+.clear-20{
+  clear: both;
+  height: 20px;
+}
+.clear-30{
+  clear: both;
+  height: 40px;
+}
+.clear-50{
+  clear: both;
+  height: 50px;
+}
 
 a{
   color: $link-color;
@@ -58,5 +70,33 @@ a{
     display: block;
     height: 30px;
     left: 50%;
+  }
+}
+
+.card-form-holder{
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #d6dadc;
+  border-bottom-color: #c4c9cc;
+  box-shadow: 0 1px 6px rgba(0,0,0,.15);
+  width: 300px;
+  -webkit-transform: translateZ(0);
+  clear: both;
+  padding: 5px;
+  .card-form-header{
+    .card-form-title{
+      text-align: center;
+      color: #838c91;
+      display: block;
+      line-height: 36px;
+      border-bottom: 1px solid #d6dadc;
+      .close-button-holder{
+        width: 20px;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        cursor: pointer;
+      }
+    }
   }
 }

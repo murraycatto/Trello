@@ -1,26 +1,41 @@
 = render '/layouts/header'
-%table
-  %thead
-    %tr
-      %th Name
-      %th User
-      %th Color
-      %th Project
-      %th
-      %th
-      %th
-
-  %tbody
-    - @boards.each do |board|
-      %tr
-        %td= board.name
-        %td= board.user_id
-        %td= board.color_id
-        %td= board.project_id
-        %td= link_to 'Show', board
-        %td= link_to 'Edit', edit_board_path(board)
-        %td= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Board', new_board_path
+.boards-wrapper
+  - @teams.each do |team|
+    .team-holder
+      - if team.personal
+        %i.fa.fa-user-o
+        .team-name
+          = team.name
+      - else
+        %i.fa.fa-users-o
+    - team.boards.each do |board|
+      .boards-holder
+        .board-item
+          = board.name
+    .clear-10
+    .create-board-holder
+      .create-board-item
+        Create new board…
+  .clear-30
+  .create-new-team-holder.hide-body-clicks-btn{onclick: "$('#create-team-form').show();"}
+    .create-new-team-item
+      Create a new team...
+  #create-team-form.hide-body-clicks{style:"display:none"}
+    .card-form-holder
+      .card-form-header
+        .card-form-title
+          Create Team
+          .close-button-holder{onclick:"$('#create-team-form').hide();"}
+            .fa.fa-times
+      = form_with(model: Team.new, url: [ Team.new ]) do |f|
+        .card-form-body
+          .card-form-label
+            = f.label :name
+          .card-form-input
+            = f.text_field :name
+          .card-form-label
+            = f.label :name
+          .card-form-input
+            = f.text_area :name
+          .card-form-submit
+            = f.submit "Create"
