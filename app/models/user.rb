@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :boards
+  has_many :teams
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

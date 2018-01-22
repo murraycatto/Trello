@@ -9,7 +9,7 @@
 }
 
 .team-holder{
-  .fa.fa-user-o{
+  .fa.fa-user,.fa.fa-users{
     float: left;
     margin-right: 10px;
     margin-top: -3px;
@@ -33,7 +33,12 @@
     font-size: 15px;
     line-height: 100px;
     border-radius: 2px;
+    width: 85%;
+    margin-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
   }
+
   .create-board-item:hover{
     cursor: pointer;
     background-color: #d6dadc;
@@ -54,5 +59,33 @@
     background: #d6dadc;
     color: #4d4d4d;
     cursor: pointer;
+  }
+}
+
+.boards-holder{
+  width: 25%;
+  float: left;
+
+  .board-item{
+    height: 100px;
+    font-size: 15px;
+    line-height: 35px;
+    border-radius: 2px;
+    font-weight: bold;
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    width: 85%;
+    margin-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+
+
+.board-show-holder{
+  height: 100vh;
+  .nav-bar{
+    background: rgba(0,0,0,.15);
   }
 }

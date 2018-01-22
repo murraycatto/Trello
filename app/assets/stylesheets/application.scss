@@ -83,13 +83,17 @@ a{
   -webkit-transform: translateZ(0);
   clear: both;
   padding: 5px;
+  position: absolute;
+
   .card-form-header{
+
     .card-form-title{
       text-align: center;
       color: #838c91;
       display: block;
       line-height: 36px;
       border-bottom: 1px solid #d6dadc;
+
       .close-button-holder{
         width: 20px;
         position: absolute;
@@ -97,6 +101,81 @@ a{
         top: 5px;
         cursor: pointer;
       }
+
     }
+
+  }
+  .card-form-label{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+
+  .card-form-input{
+
+    input,textarea{
+        box-sizing: border-box;
+        box-sizing: border-box;
+        background-color: #e2e4e6;
+        border: 1px solid #cdd2d4;
+        border-top-color: rgb(205, 210, 212);
+        border-right-color: rgb(205, 210, 212);
+        border-bottom-color: rgb(205, 210, 212);
+        border-left-color: rgb(205, 210, 212);
+        border-radius: 3px;
+        display: block;
+        margin-bottom: 12px;
+        padding: 7px;
+        width: 100%;
+        min-height: 35px;
+        font-size: 15px;
+        font-family: Helvetica, sans-serif;
+    }
+    select{
+      width: 100%;
+    }
+    input:focus,textarea:focus{
+      background: #fff;
+      border-color: #298fca;
+      box-shadow: 0 0 2px #298fca;
+    }
+
+  }
+  .card-form-submit {
+      input{
+      background: #5aac44;
+      -webkit-box-shadow: 0 1px 0 #519839;
+      box-shadow: 0 1px 0 #519839;
+      color: #fff;
+      background: #5aac44;
+      border: none;
+      -webkit-box-shadow: 0 1px 0 #519839;
+      box-shadow: 0 1px 0 #519839;
+      cursor: pointer;
+      display: inline-block;
+      font-weight: 700;
+      line-height: 22px;
+      margin: 8px 4px 0 0;
+      padding: 5px 16px;
+      text-align: center;
+      border-radius: 2px;
+      font-size: 13px;
+      width: 90px;
+    }
+  }
+  .card-form-line{
+    background: #d6dadc;
+    height: 1px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: block;
+    float: none;
+    clear: both;
+  }
+  .card-form-text{
+    color: #838c91;
+    font-size: 14px;
+    margin-top: 15px;
+    margin-bottom: 15px;
   }
 }

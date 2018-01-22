@@ -2,4 +2,5 @@
   .boards-link
     .i.fa.fa-trello
     Boards
-  = image_tag 'header-logo.png', class: "nav-bar-logo"
+  = link_to boards_path do
+    = image_tag 'header-logo.png', class: "nav-bar-logo"
