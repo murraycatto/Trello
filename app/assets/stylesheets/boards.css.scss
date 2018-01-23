@@ -120,13 +120,13 @@
     padding: 20px;
     .add-a-list{
       width: 100%;
-      padding: 7px;
+      padding: 10px;
       color: hsla(0,0%,100%,.7);
       background: rgba(0,0,0,.12);
       cursor: pointer;
-      color: #fff;
       border-radius: 3px;
-
+      box-sizing : border-box;
+      font-size: 15px;
     }
     form{
       height: auto;
@@ -135,13 +135,22 @@
       border-radius: 3px;
       background-color: #e2e4e6;
     }
+    input::placeholder, textarea::placeholder {
+      color: #838c91;
+    }
     input[type="text"]{
+      background: rgba(0,0,0,.05);
       width: 100%;
-      border: 1px solid #cdd2d4;
       border-radius: 3px;
       display: block;
       margin-bottom: 12px;
-      padding: 7px;
+      padding: 10px;
+      box-sizing : border-box;
+      font-size: 15px;
+      box-shadow: inset 0 1px 8px rgba(0,0,0,.15);
+      border: 1px solid #cdd2d4;
+      border-color: #aaa;
+
     }
     input[type="submit"] {
       background: #5aac44;
@@ -162,6 +171,12 @@
       border-radius: 2px;
       font-size: 13px;
       width: 90px;
+    }
+    .fa{
+      color: #999;
+    }
+    .fa:hover{
+      color: #4d4d4d;
     }
   }
 
