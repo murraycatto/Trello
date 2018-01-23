@@ -1,2 +1,17 @@
 .board-show-holder{style:"background:#{@board.color.hex_code}"}
   = render '/layouts/header'
+  .second-nav-bar
+    .second-nav-board-name
+      Board
+    .second-nav-show-menu
+      %i.fa.fa-ellipsis-h
+      %span
+        Show Menu
+  .add-list-holder
+    .add-list-form
+      .add-a-list.hide-body-clicks-btn.show-body-clicks{onclick:"$('#create-list-form').slideDown(100);$('.add-a-list').hide();"}
+        Add a list...
+      #create-list-form.hide-body-clicks.stop-show-body-clicks{style:"display:none;"}
+        = form_with(model: List.new, url: List.new) do |f|
+          = f.text_field :name, placeholder:"Add a list...",class:"create-list"
+          = f.submit "Save"

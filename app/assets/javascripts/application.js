@@ -26,5 +26,8 @@ function initHideOnBodyClick(){
     {
         $(".hide-body-clicks").hide();
     }
+    if(!$(event.target).hasClass("stop-show-body-clicks") && $(event.target).parents(".stop-show-body-clicks").length === 0 && !$(event.target).hasClass("show-body-clicks")){
+        $(".show-body-clicks").show();
+    }
   });
 }
