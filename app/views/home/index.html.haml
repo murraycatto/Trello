@@ -1,7 +1,7 @@
 .home-page-wrapper
   .nav-holder
     = link_to root_path, class: "trello-logo-white" do
-      = image_tag('trello-logo-white')
+      = image_tag('trello-logo-white.svg')
     .links-container
       -if user_signed_in?
         = link_to "Go to Your Boards", boards_path, class: "boards-link"
