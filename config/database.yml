@@ -83,3 +83,4 @@ production:
   database: Trello_production
   username: Trello
   password: <%= ENV['TRELLO_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
