@@ -1,7 +1,6 @@
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show,:updated,:destroy]
   before_action :set_boards, only: [:index, :show]
-
   before_action :authenticate_user!
   before_action :set_teams, only: [:index, :show]
 
@@ -13,8 +12,6 @@ class BoardsController < ApplicationController
       redirect_to board_path
     end
   end
-
-
 
   def create
     @board = Board.new(params.require(:board).permit(:name))
