@@ -8,13 +8,19 @@
       %span
         Show Menu
   .clear-10
-  .add-list-holder
-    .add-list-form
-      .add-a-list.hide-body-clicks-btn.show-body-clicks{onclick:"$('#create-list-form').slideDown(100);$('.add-a-list').hide();$('#ListName').focus();"}
-        Add a list...
-      #create-list-form.hide-body-clicks.stop-show-body-clicks{style:"display:none;"}
-        = form_with(model: List.new, url: List.new) do |f|
-          = f.text_field :name, placeholder:"Add a list...",id:"ListName",class:"create-list"
-          = f.hidden_field :board_id, value: @board.id
-          = f.submit "Save"
-          .fa.fa-times{onclick:"$('#create-list-form').hide();$('.add-a-list').show();"}
+  .lists-container
+    - @lists.each do |list|
+      .list-item-holder
+        .list-item
+          .list-item-name
+            = list.name
+    .add-list-holder
+      .add-list-form
+        .add-a-list.hide-body-clicks-btn.show-body-clicks{onclick:"$('#create-list-form').slideDown(100);$('.add-a-list').hide();$('#ListName').focus();"}
+          Add a list...
+        #create-list-form.hide-body-clicks.stop-show-body-clicks{style:"display:none;"}
+          = form_with(model: List.new, url: List.new) do |f|
+            = f.text_field :name, placeholder:"Add a list...",id:"ListName",class:"create-list"
+            = f.hidden_field :board_id, value: @board.id
+            = f.submit "Save"
+            .fa.fa-times{onclick:"$('#create-list-form').hide();$('.add-a-list').show();"}

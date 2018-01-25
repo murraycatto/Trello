@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
   before_action :set_boards, only: [:index, :show]
   before_action :authenticate_user!
   before_action :set_teams, only: [:index, :show]
-
+  before_action :set_lists, only: [:show]
   def index
   end
 
@@ -39,6 +39,10 @@ class BoardsController < ApplicationController
 
     def set_board
       @board = Board.find(params[:id])
+    end
+
+    def set_lists
+      @lists = List.where(board:@board)
     end
 
 end
