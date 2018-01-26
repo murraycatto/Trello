@@ -14,6 +14,10 @@
         .list-item
           .list-item-name
             = list.name
+        .new-card-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;",id:"new-card-form-#{list.id}"}
+          = form_with(model: Card.new, url: Card.new) do |f|
+        .add-a-card-holder.hide-body-clicks-btn.show-body-clicks{id:"new-card-holder-#{list.id}",onclick:"$('#new-card-form-#{list.id}').slideDown(100);$('#new-card-holder-#{list.id}').hide();$('#CardName#{list.id}').focus();"}
+          Add a card ...
     .add-list-holder
       .add-list-form
         .add-a-list.hide-body-clicks-btn.show-body-clicks{onclick:"$('#create-list-form').slideDown(100);$('.add-a-list').hide();$('#ListName').focus();"}

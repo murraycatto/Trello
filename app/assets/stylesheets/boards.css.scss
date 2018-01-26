@@ -121,6 +121,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   padding-bottom: 10px;
+  padding-left: 15px;
   padding-right: 56px;
   min-height: 800px !important;
 }
@@ -207,7 +208,6 @@
   width: 270px;
   margin: 0 5px;
   margin-left: 5px;
-  min-height: 100px;
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
@@ -216,12 +216,27 @@
   padding-bottom: 45px;
   overflow: visible;
   border-radius: 3px;
-  padding: 7px;
   .list-item{
     .list-item-name{
       font-weight: bold;
       color: #333;
-      font-size: 14px;
+      font-size: 16px;
+      padding: 10px;
     }
   }
+  .add-a-card-holder{
+      position: absolute;
+      bottom: 0;
+      padding: 10px 0px 10px 10px;
+      color: #838c91;
+      font-size: 14px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .add-a-card-holder:hover{
+      background-color: #cdd2d4;
+      color: #4d4d4d;
+      text-decoration: underline;
+      cursor: pointer;
+    }
 }
