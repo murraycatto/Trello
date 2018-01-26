@@ -16,6 +16,10 @@
             = list.name
         .new-card-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;",id:"new-card-form-#{list.id}"}
           = form_with(model: Card.new, url: Card.new) do |f|
+            = f.text_area :name, id: "CardName#{list.id}"
+            = f.hidden_field :list_id, value: list.id
+            = f.submit "Add",class: "btn-save"
+            .fa.fa-times{onclick:"$('#new-card-form-#{list.id}').hide();$('#new-card-holder-#{list.id}').show();"}
         .add-a-card-holder.hide-body-clicks-btn.show-body-clicks{id:"new-card-holder-#{list.id}",onclick:"$('#new-card-form-#{list.id}').slideDown(100);$('#new-card-holder-#{list.id}').hide();$('#CardName#{list.id}').focus();"}
           Add a card ...
     .add-list-holder
@@ -26,5 +30,5 @@
           = form_with(model: List.new, url: List.new) do |f|
             = f.text_field :name, placeholder:"Add a list...",id:"ListName",class:"create-list"
             = f.hidden_field :board_id, value: @board.id
-            = f.submit "Save"
+            = f.submit "Save",class: "btn-save"
             .fa.fa-times{onclick:"$('#create-list-form').hide();$('.add-a-list').show();"}
