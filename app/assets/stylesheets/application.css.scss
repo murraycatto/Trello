@@ -24,7 +24,9 @@ body{
   font-family: $primary-font;
   color: $primary-color;
 }
-
+body.modal-visible{
+  
+}
 .clear-10{
   clear: both;
   height: 10px;

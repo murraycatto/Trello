@@ -14,6 +14,12 @@
         .list-item
           .list-item-name
             = list.name
+        - cards = Card.where(list:list)
+        .cards-holder
+          - cards.each do |card|
+            .card-item-holder{onclick:"dynamicAjaxGet('#{card_path(card)}','ModalHolder','showModals();')"}
+              .card-item-name
+                = card.name
         .new-card-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;",id:"new-card-form-#{list.id}"}
           = form_with(model: Card.new, url: Card.new) do |f|
             = f.text_area :name, id: "CardName#{list.id}"
@@ -32,3 +38,5 @@
             = f.hidden_field :board_id, value: @board.id
             = f.submit "Save",class: "btn-save"
             .fa.fa-times{onclick:"$('#create-list-form').hide();$('.add-a-list').show();"}
+#ModalOverlay
+  #ModalHolder.modal-holder{style:"display:none;"}

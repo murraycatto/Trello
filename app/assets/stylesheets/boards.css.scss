@@ -217,6 +217,7 @@ input[type="submit"].btn-save {
   min-height: 65px;
   overflow: visible;
   border-radius: 3px;
+  padding-bottom: 40px;
   .list-item{
     .list-item-name{
       font-weight: bold;
@@ -243,8 +244,9 @@ input[type="submit"].btn-save {
 }
 
 .new-card-holder{
+  margin-bottom: -30px;
   form{
-    padding: 10px;
+    padding: 0px 10px 0px 10px;
     textarea{
       width: 100%;
       clear: both;
@@ -261,5 +263,23 @@ input[type="submit"].btn-save {
       border-bottom: 1px solid #ccc;
     }
   }
-
+}
+.cards-holder{
+  .card-item-holder{
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 10px 5px 10px 5px;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    border-radius: 3px;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 6px;
+    max-width: 300px;
+    min-height: 20px;
+    position: relative;
+    text-decoration: none;
+    z-index: 0;
+    color: #444;
+  }
 }
