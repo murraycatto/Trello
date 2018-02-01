@@ -11,9 +11,9 @@
   min-height: 1000px;
 }
 #ModalOverlay{
-padding-top: 100px;
 }
 #ModalOverlay.active{
+  padding-top: 100px;
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start;

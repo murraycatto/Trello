@@ -264,22 +264,42 @@ input[type="submit"].btn-save {
     }
   }
 }
-.cards-holder{
-  .card-item-holder{
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 10px 5px 10px 5px;
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-    border-radius: 3px;
-    cursor: pointer;
-    display: block;
-    margin-bottom: 6px;
-    max-width: 300px;
-    min-height: 20px;
-    position: relative;
-    text-decoration: none;
-    z-index: 0;
-    color: #444;
-  }
+.card-item-holder{
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px 7.5px 10px 7.5px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 6px;
+  max-width: 300px;
+  min-width: 230px;
+  min-height: 20px;
+  position: relative;
+  text-decoration: none;
+  z-index: 0;
+  color: #444;
+  font-size: 14px;
+}
+.card-item-holder.dragging{
+	-webkit-transform: rotate(10deg);
+	-moz-transform: rotate(10deg);
+	-o-transform: rotate(10deg);
+	-ms-transform: rotate(10deg);
+	transform: rotate(10deg);
+}
+.card-item-holder.grayed-out{
+	display: none;
+}
+.list-item-holder.drop-hover .droppable-area{
+  background: #c4c9cc;
+  min-height: 30px;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: block;
+  box-sizing: border-box;
 }

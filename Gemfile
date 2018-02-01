@@ -44,8 +44,9 @@ gem "font-awesome-rails"
 
 #You gotta have Jquery
 gem "jquery-rails"
-
-#This is for Heroku 
+# And some Jquery UI
+gem 'jquery-ui-rails'
+#This is for Heroku
 gem 'rails_12factor', group: :production
 
 group :development, :test do
