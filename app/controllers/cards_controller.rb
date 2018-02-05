@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:show]
+  before_action :set_card, only: [:show,:update_list]
 
   def show
     render layout: false
@@ -18,14 +18,17 @@ class CardsController < ApplicationController
     end
   end
 
+  def update_list
+    # Add validations
+    @card.update(card_list_params)
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_card
       @card = Card.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def card_params
-      params.require(:card).permit(:name, :list_id)
+    def card_list_params
+      params.require(:card).permit(:list_id)
     end
 end

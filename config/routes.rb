@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :cards
   resources :lists
   resources :boards
   resources :teams
@@ -8,5 +7,11 @@ Rails.application.routes.draw do
   }
   root to: 'home#index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :cards do
+    member do
+      patch :update_list
+      put :update_list
+    end
+  end
+
 end

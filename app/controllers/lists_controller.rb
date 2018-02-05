@@ -1,5 +1,4 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: [:update]
 
   def create
     @list = List.new(list_params)

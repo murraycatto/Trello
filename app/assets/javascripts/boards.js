@@ -28,5 +28,9 @@ function initDraggableCards(){
 }
 
 function moveCardToList(list,card) {
+  ListID = $(list).data('id');
+  CardID = $(card).data('id');
+  $("#CardListID"+CardID).val(ListID);
+  $("#CardForm"+CardID).submit();
   $(list).append(card);
 }
