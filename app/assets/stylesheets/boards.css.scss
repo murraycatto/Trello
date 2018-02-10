@@ -54,6 +54,7 @@
     float: left;
     padding: 10px;
     border-radius: 2px;
+    margin-bottom: 20px;
   }
   .create-new-team-item:hover{
     background: #d6dadc;
@@ -127,6 +128,7 @@
 }
 
 .add-list-holder{
+  margin-right: 10px;
   white-space: nowrap;
   width: 270px;
   min-height: 450px;
@@ -263,6 +265,10 @@ input[type="submit"].btn-save {
       border-bottom: 1px solid #ccc;
     }
   }
+}
+.cards-holder{
+  max-height: 500px;
+  overflow-y: scroll;
 }
 .card-item-holder{
   margin-left: 10px;

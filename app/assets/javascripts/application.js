@@ -4,11 +4,15 @@
 //= require turbolinks
 //= require_tree .
 
-
+var authenticity_token = "";
 $(document).on('turbolinks:load', function() {
+  setAuthenticityToken();
   initHideOnBodyClick();
 });
 
+function setAuthenticityToken(){
+  authenticity_token = $('meta[name=csrf-token]').attr("content");
+}
 function initHideOnBodyClick(){
   $('body').click(function(event){
     // Show hide body clicks
@@ -37,7 +41,6 @@ function dynamicAjaxGet(PathName,ReplaceHolder,callBacks){
   if(callBacks === undefined){
 	    callBacks = '';
 	}
-
 	$.ajax({
 		method: "Get",
 		url: PathName

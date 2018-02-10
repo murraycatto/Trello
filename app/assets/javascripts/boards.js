@@ -9,9 +9,7 @@ function initDraggableCards(){
       revert: "invalid",
       start: function( event, ui ) {
         $($(event)['0'].currentTarget).addClass('grayed-out');
-        // This adds a class to the ghost card
         $($(ui)['0']['helper']['0']).addClass('dragging');
-        // This adds a class to the ghost card
       },
       stop: function( event, ui ) {
         $($(event)['0'].target).removeClass('grayed-out');
@@ -32,5 +30,17 @@ function moveCardToList(list,card) {
   CardID = $(card).data('id');
   $("#CardListID"+CardID).val(ListID);
   $("#CardForm"+CardID).submit();
-  $(list).append(card);
+  $(list).find(".cards-holder").append(card);
+}
+
+
+
+function changeCardName(CardID,Name){
+  $.ajax({
+		method: "PUT",
+		url: "/cards/"+CardID,
+    data:{name:Name,authenticity_token:authenticity_token}
+	}) .done(function( data ) {
+			console.log(data);
+	});
 }

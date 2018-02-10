@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-  before_action :set_card, only: [:show,:update_list]
+  before_action :set_card, only: [:show,:update_list,:update]
 
   def show
     render layout: false
@@ -18,10 +18,21 @@ class CardsController < ApplicationController
     end
   end
 
+
+  def update
+    #//TODO Add validations
+    if @card.update(card_params)
+      render :json => @card
+    else
+      render :json => {error:"Card failed to update"}
+    end
+  end
+
   def update_list
-    # Add validations
+    #//TODO Add validations
     @card.update(card_list_params)
   end
+
 
   private
     def set_card
@@ -30,5 +41,9 @@ class CardsController < ApplicationController
 
     def card_list_params
       params.require(:card).permit(:list_id)
+    end
+
+    def card_params
+      params.permit(:name)
     end
 end

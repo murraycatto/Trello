@@ -1,2 +1,7 @@
-%h1
-  = @card.name
+.moadl-header
+  .molda-card-icon
+    = image_tag("card-icon.png")
+  .modal-card-name
+    %input{id:"ModalCardName",value:"#{@card.name}",onchange:"changeCardName('#{@card.id}',$(this).val());"}
+  .modal-close
+    &times;
