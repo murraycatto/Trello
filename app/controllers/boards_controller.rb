@@ -1,14 +1,12 @@
 class BoardsController < ApplicationController
-  before_action :setup_board, only: [:show]
+  before_action :set_board, only: [:show]
   before_action :set_teams, only: [:index]
   before_action :authenticate_user!
   def index
   end
 
   def show
-    if @board.user != current_user
-      redirect_to board_path
-    end
+
   end
 
   def create
@@ -27,8 +25,11 @@ class BoardsController < ApplicationController
       @teams = Team.includes(:boards).where(user: current_user)
     end
 
-    def setup_board
-      @board = Board.includes(:lists).find(params[:id])
+    def set_board
+      @board = Board.includes(:lists).find_by(id:params[:id],user:current_user)
+      if @board.nil?
+        redirect_to boards_url
+      end
     end
 
     def board_params

@@ -1,6 +1,7 @@
 $(document).on('turbolinks:load', function() {
   initDraggableCards();
 });
+
 function initDraggableCards(){
   $(".card-item-holder").draggable({
       containment: $('.lists-container'),
@@ -31,17 +32,24 @@ function moveCardToList(list,card) {
   $("#CardListID"+CardID).val(ListID);
   $("#CardForm"+CardID).submit();
   $(list).find(".cards-holder").append(card);
+  $.ajax({
+		method: "PUT",
+		url: "/cards/"+CardID+"/update_list",
+    data:{list_id:ListID,authenticity_token:authenticity_token}
+	}).done(function(data) {
+    // TODO: IF it fails roll back move
+    console.log(data);
+	});
 }
 
-
-
 function changeCardName(CardID,Name){
+  $("#CardName"+CardID).html(Name);
   $.ajax({
 		method: "PUT",
 		url: "/cards/"+CardID,
     data:{name:Name,authenticity_token:authenticity_token}
 	}) .done(function( data ) {
-      console.log($("#CardName"+CardID));
-			$("#CardName"+CardID).html(Name);
+    // TODO: IF it fails roll back name
+    console.log(data);
 	});
 }

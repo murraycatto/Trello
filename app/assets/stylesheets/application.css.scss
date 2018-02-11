@@ -28,6 +28,10 @@ body{
 body.modal-visible{
   background-color: rgba(0,0,0,.6);
 }
+input,textarea{
+  color: #4d4d4d;
+  font-size: 14px;
+}
 .clear-10{
   clear: both;
   height: 10px;
