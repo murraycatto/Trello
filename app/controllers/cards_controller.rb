@@ -1,4 +1,5 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_card, only: [:show,:update_list,:update]
 
   def show
@@ -7,21 +8,17 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
-    respond_to do |format|
-      if @card.save
-        format.html {
-            redirect_to board_path(List.find(params.require(:card)[:list_id]).board)
-        }
-      else
-        format.html { redirect_to boards_path}
-      end
+    if @card.save
+      redirect_to board_path(@card.list.board)
+    else
+      redirect_to boards_path
     end
   end
 
 
   def update
     #//TODO Add validations
-    if @card.update(card_params)
+    if @card.update(params.permit(:name))
       render :json => @card
     else
       render :json => {error:"Card failed to update"}
@@ -44,6 +41,6 @@ class CardsController < ApplicationController
     end
 
     def card_params
-      params.permit(:name)
+      params.require(:card).permit(:name,:list_id)
     end
 end

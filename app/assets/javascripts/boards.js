@@ -41,6 +41,7 @@ function changeCardName(CardID,Name){
 		url: "/cards/"+CardID,
     data:{name:Name,authenticity_token:authenticity_token}
 	}) .done(function( data ) {
-			console.log(data);
+      console.log($("#CardName"+CardID));
+			$("#CardName"+CardID).html(Name);
 	});
 }

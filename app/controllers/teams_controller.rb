@@ -1,6 +1,5 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
-
   def create
     @team = Team.new(team_params)
     @team.user = current_user
@@ -11,10 +10,8 @@ class TeamsController < ApplicationController
     end
   end
 
-
   private
-
     def team_params
-      params.require(:team).permit(:name)
+      params.require(:team).permit(:name,:description)
     end
 end

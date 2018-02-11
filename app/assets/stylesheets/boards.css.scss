@@ -264,6 +264,9 @@ input[type="submit"].btn-save {
       resize: none;
       border-bottom: 1px solid #ccc;
     }
+    textarea:focus{
+      outline: none;
+    }
   }
 }
 .cards-holder{
@@ -277,6 +280,8 @@ input[type="submit"].btn-save {
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   border-radius: 3px;
+  white-space: normal;
+  word-wrap: break-word;
   cursor: pointer;
   display: block;
   margin-bottom: 6px;
