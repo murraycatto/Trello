@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_card, only: [:show,:update_list,:update]
+  before_action :set_card, only: [:show,:update_list,:update,:comments]
 
   def show
     render :modal, layout: false
@@ -19,7 +19,7 @@ class CardsController < ApplicationController
   def update
     #//TODO Add validations
     if @card.update(params.permit(:name))
-      render :json =>{sucess:"1",message:"Card updated",card:@card}
+      render :js =>{sucess:"1",message:"Card updated",card:@card}
     else
       render :json =>{sucess:"1",message:"Card failed to update"}
     end
@@ -34,14 +34,27 @@ class CardsController < ApplicationController
     end
   end
 
+  def comments
+    @card_comment = @card.card_comments.new(card_comment_params)
+    @card_comment.user = current_user
+    if @card_comment.save
+      render :comments, layout: false
+    else
+      render :json =>{sucess:"1",message:"Card Comment failed to create",errors:@card_comment.errors}
+    end
+  end
 
   private
     def set_card
-      @card = Card.find(params[:id])
+      @card = Card.includes(:card_comments).find(params[:id])
     end
 
     def card_list_params
       params.permit(:list_id)
+    end
+
+    def card_comment_params
+      params.require(:card_comment).permit(:comment)
     end
 
     def card_params

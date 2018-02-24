@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     member do
       patch :update_list
       put :update_list
+      post :comments
     end
   end
 

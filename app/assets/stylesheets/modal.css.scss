@@ -88,6 +88,61 @@
         color: #4d4d4d;
       }
     }
+    textarea.card-comment{
+      font-family: Helvetica,sans-serif;
+      overflow: hidden;
+      overflow-wrap: break-word;
+      height: 75px;
+      background: transparent none repeat scroll 0% 0% !important;
+      z-index: auto;
+      position: relative;
+      line-height: 18px;
+      font-size: 14px;
+      transition: none 0s ease 0s;
+      background: none;
+      height: 75px;
+      margin: 0;
+      min-height: 75px;
+      padding: 9px 11px;
+      padding-bottom: 0;
+      width: 100%;
+      resize: none;
+      resize: vertical;
+      -webkit-transition: background 85ms ease-in,border-color 85ms ease-in;
+      transition: background 85ms ease-in,border-color 85ms ease-in;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      background-color: #e2e4e6;
+      border: 1px solid #cdd2d4;
+      border-radius: 3px;
+      display: block;
+      background-color: #fff;
+      border-radius: 3px;
+      -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.23);
+      box-shadow: 0 1px 2px rgba(0,0,0,.23);
+      margin: 4px 4px 12px 0;
+      resize: none;
+    }
+    .user-profile-pic{
+      background: #d6dadc;
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      font-size: 15px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 30px;
+      margin-right: 10px;
+    }
+    .modal-section-left{
+      max-width: 20%;
+      float: left;
+    }
+    .modal-section-right{
+      width: 80%;
+      float: left;
+    }
   }
   .modal-section-header{
     clear: both;
@@ -163,6 +218,12 @@
         font-size: 14px;
         margin-top: 3px;
       }
+    }
+    .modal-button:hover {
+      background: #cdd2d4;
+      -webkit-box-shadow: 0 1px 0 0 #a5acb0;
+      box-shadow: 0 1px 0 0 #a5acb0;
+      color: #4c4c4c;
     }
   }
 }

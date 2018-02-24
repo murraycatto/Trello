@@ -16,8 +16,17 @@
       .icon-comment.icon
       %span
         Add Comment
-    Text Area
-    Save
+    .modal-section-left
+      .user-profile-pic
+        = current_user.name.chars.first
+    .modal-section-right
+      = form_with model: @card.card_comments.new , url: comments_card_path do |f|
+        = f.text_area :comment, class:"card-comment"
+        = f.submit "Save",class: "btn-save"
+    .clear-10
+    #CardComments
+      - @card.card_comments.each do |card_comment|
+        = render card_comment
     .modal-section-header
       .icon.icon-activity
       %span
@@ -47,7 +56,6 @@
       .icon.icon-attachment
       %span
         Attachment
-
     Actions
     Move
     Copy

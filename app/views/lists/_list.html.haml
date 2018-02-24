@@ -6,9 +6,7 @@
   - cards = Card.where(list:list)
   .cards-holder
     - cards.each do |card|
-      .card-item-holder{onclick:"dynamicAjaxGet('#{card_path(card)}','ModalHolder','showModals();')",data:{id:card.id}}
-        .card-item-name{id:"CardName#{card.id}"}
-          = card.name
+      = render card
   .new-card-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;",id:"new-card-form-#{list.id}"}
     = form_with(model: Card.new, url: Card.new) do |f|
       = f.text_area :name, id: "NewCardName#{list.id}"
