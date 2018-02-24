@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   before_action :set_card, only: [:show,:update_list,:update]
 
   def show
-    render layout: false
+    render :modal, layout: false
   end
 
   def create
@@ -19,7 +19,7 @@ class CardsController < ApplicationController
   def update
     #//TODO Add validations
     if @card.update(params.permit(:name))
-      render :json =>{sucess:"1",message:"Card updated"}
+      render :json =>{sucess:"1",message:"Card updated",card:@card}
     else
       render :json =>{sucess:"1",message:"Card failed to update"}
     end
@@ -28,9 +28,9 @@ class CardsController < ApplicationController
   def update_list
     #//TODO Add validations
     if @card.update(card_list_params)
-      render :json =>{sucess:"1",message:"Card List updated"}
+      render :json =>{sucess:"1",message:"Card List updated",card:@card}
     else
-      render :json =>{sucess:"1",message:"Card List failed to update"}
+      render :json =>{sucess:"1",message:"Card List failed to update",errors:@card.errors}
     end
   end
 

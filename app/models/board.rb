@@ -4,4 +4,5 @@ class Board < ApplicationRecord
   belongs_to :team
   belongs_to :color
   has_many :lists
+  has_many :cards, through: :lists
 end

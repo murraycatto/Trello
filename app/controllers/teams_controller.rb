@@ -1,12 +1,10 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
+
   def create
-    @team = Team.new(team_params)
-    @team.user = current_user
-    respond_to do |format|
-      if @team.save
-        format.html { redirect_to boards_path, notice: 'Team was successfully created.' }
-      end
+    @team = current_user.teams.new(team_params)
+    if @team.save
+      redirect_to boards_path, notice: 'Team was successfully created.'
     end
   end
 

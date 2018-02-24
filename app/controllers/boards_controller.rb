@@ -6,17 +6,14 @@ class BoardsController < ApplicationController
   end
 
   def show
-
   end
 
   def create
     @board = Board.new(board_params)
-    respond_to do |format|
-      if @board.save
-        format.html { redirect_to boards_url}
-      else
-        format.html { render :index }
-      end
+    if @board.save
+      redirect_to boards_url
+    else
+      render :index
     end
   end
 

@@ -1,0 +1,19 @@
+.list-item-holder{data:{id:list.id}}
+  .list-item
+    .list-item-name
+      = list.name
+  .droppable-area
+  - cards = Card.where(list:list)
+  .cards-holder
+    - cards.each do |card|
+      .card-item-holder{onclick:"dynamicAjaxGet('#{card_path(card)}','ModalHolder','showModals();')",data:{id:card.id}}
+        .card-item-name{id:"CardName#{card.id}"}
+          = card.name
+  .new-card-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;",id:"new-card-form-#{list.id}"}
+    = form_with(model: Card.new, url: Card.new) do |f|
+      = f.text_area :name, id: "NewCardName#{list.id}"
+      = f.hidden_field :list_id, value: list.id
+      = f.submit "Add",class: "btn-save"
+      .fa.fa-times{onclick:"$('#new-card-form-#{list.id}').hide();$('#new-card-holder-#{list.id}').show();"}
+  .add-a-card-holder.hide-body-clicks-btn.show-body-clicks{id:"new-card-holder-#{list.id}",onclick:"$('#new-card-form-#{list.id}').slideDown(100);$('#new-card-holder-#{list.id}').hide();$('#NewCardName#{list.id}').focus();"}
+    Add a card ...

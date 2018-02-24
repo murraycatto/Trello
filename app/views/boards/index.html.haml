@@ -1,43 +1,7 @@
 = render '/layouts/header'
 .boards-wrapper
   - @teams.each do |team|
-    - if team.personal
-      .team-holder
-        %i.fa.fa-user
-        .team-name
-          = team.name
-    - else
-      .team-holder
-        %i.fa.fa-users
-        .team-name
-          = team.name
-    .clear-10
-    - team.boards.each do |board|
-      .boards-holder
-        = link_to board.name,board_path(board), class: "board-item", style:"background:#{board.color.hex_code}"
-    .create-board-holder.hide-body-clicks-btn{onclick: "$('#create-board-form-#{team.id}').show();"}
-      .create-board-item
-        Create new board…
-    .hide-body-clicks{id:"create-board-form-#{team.id}",style:"display:none"}
-      .card-form-holder
-        .card-form-header
-          .card-form-title
-            Create Board
-            .close-button-holder{onclick:"$('#create-board-form-#{team.id}').hide();"}
-              .fa.fa-times
-        = form_with(model: Board.new, url: Board.new) do |f|
-          .card-form-body
-            .card-form-label
-              = f.label :name
-            .card-form-input
-              = f.text_field :name
-            .card-form-label
-              = f.label :team
-            .card-form-input
-              = f.select :team, @teams.collect{|u| [u.name, u.id]}, selected: team.id
-            .card-form-submit
-              = f.submit "Create"
-    .clear-50
+    = render team
   .create-new-team-holder.hide-body-clicks-btn{onclick: "$('#create-team-form').show();"}
     .create-new-team-item
       Create a new team...

@@ -1,0 +1,56 @@
+.moadl-header
+  .molda-card-icon
+    .icon.icon-card
+  .modal-card-name
+    %input{id:"ModalCardName",value:"#{@card.name}",onchange:"changeCardName('#{@card.id}',$(this).val());"}
+  .modal-close
+    &times;
+.modal-content
+  .left-content
+    .card-in-list
+      in list
+      %span
+        = @card.list.name
+      -# TODO add Popup for changing list
+    .modal-section-header
+      .icon-comment.icon
+      %span
+        Add Comment
+    Text Area
+    Save
+    .modal-section-header
+      .icon.icon-activity
+      %span
+        Activity
+      .right-text
+        Hide Details
+    List of Activity
+  .right-content
+    .modal-section-header
+      Add
+    .modal-button
+      .icon.icon-member
+      %span
+        Members
+    .modal-button
+      .icon.icon-label
+      Labels
+    .modal-button
+      .icon.icon-checklist
+      %span
+        Checklist
+    .modal-button
+      .icon.icon-clock
+      %span
+        Due Date
+    .modal-button
+      .icon.icon-attachment
+      %span
+        Attachment
+
+    Actions
+    Move
+    Copy
+    Subscribe
+    Achive
+  .clear-10

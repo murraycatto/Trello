@@ -8,7 +8,6 @@
   float: none;
   clear: both;
   padding: 10px;
-  min-height: 1000px;
 }
 #ModalOverlay{
 }
@@ -32,11 +31,13 @@
 
 .moadl-header{
   .molda-card-icon{
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-top: 5px;
     float: left;
-    img{
+    .icon{
+      color: #838c91;
+      font-size: 20px;
       width: 20px;
     }
   }
@@ -65,5 +66,103 @@
     font-size: 30px;
     font-weight: normal;
     margin-top: -2px;
+  }
+}
+
+.modal-content {
+  clear: both;
+  .left-content{
+    float: left;
+    width: 70%;
+    .card-in-list{
+      color: #838c91;
+      text-align: left;
+      clear: both;
+      padding-left: 40px;
+      padding-top: 10px;
+      span{
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      span:hover{
+        color: #4d4d4d;
+      }
+    }
+  }
+  .modal-section-header{
+    clear: both;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    min-height: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    .icon{
+      color: #999;
+      float: left;
+      font-size: 18px;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 20px;
+    }
+    span{
+      font-size: 20px;
+    }
+    .right-text{
+      margin-top: 4px;
+      font-size: 14px;
+      font-weight: normal;
+      float: right;
+      color: #838c91;
+      text-decoration: underline;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+    .right-text:hover{
+      color: #4d4d4d;
+    }
+  }
+  .right-content{
+    padding-left: 10px;
+    float: left;
+    width: 25%;
+    .modal-button{
+      width: 100%;
+      background: #e2e4e6;
+      -webkit-box-shadow: 0 1px 0 0 #c4c9cc;
+      box-shadow: 0 1px 0 0 #c4c9cc;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      cursor: pointer;
+      display: block;
+      height: 32px;
+      margin-top: 8px;
+      max-width: 300px;
+      overflow: hidden;
+      padding: 7px 7px 7px 11px;
+      position: relative;
+      text-decoration: none;
+      text-overflow: ellipsis;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      white-space: nowrap;
+      border-radius: 3px;
+      font-weight: 700;
+      .icon{
+        float: left;
+        height: 18px;
+        font-size: 12px;
+        line-height: 18px;
+        width: 19px;
+        color: #999;
+      }
+      span{
+        float: left;
+        font-size: 14px;
+        margin-top: 3px;
+      }
+    }
   }
 }
