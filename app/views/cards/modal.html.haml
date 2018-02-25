@@ -20,20 +20,21 @@
       .user-profile-pic
         = current_user.name.chars.first
     .modal-section-right
-      = form_with model: @card.card_comments.new , url: comments_card_path do |f|
-        = f.text_area :comment, class:"card-comment"
+      - card_activity =  @card.card_activities.new
+      = form_with model: card_activity.build_card_comment , url: comments_card_path do |f|
+        = f.text_area :comment, class:"card-comment", placeholder: "Write a comment..."
         = f.submit "Save",class: "btn-save"
     .clear-10
-    #CardComments
-      - @card.card_comments.each do |card_comment|
-        = render card_comment
+
     .modal-section-header
       .icon.icon-activity
       %span
         Activity
       .right-text
         Hide Details
-    List of Activity
+    #CardActivity
+      - @card.card_activities.order(:created_at => :desc).includes(:card_comment,:card_activity_item).each do |card_activity|
+        = render card_activity
   .right-content
     .modal-section-header
       Add
@@ -56,9 +57,22 @@
       .icon.icon-attachment
       %span
         Attachment
-    Actions
-    Move
-    Copy
-    Subscribe
-    Achive
+    .modal-section-header
+      Actions
+    .modal-button
+      .icon.icon-move
+      %span
+        Move
+    .modal-button
+      .icon.icon-card
+      %span
+        Copy
+    .modal-button
+      .icon.icon-subscribe
+      %span
+        Subscribe
+    .modal-button
+      .icon.icon-archive
+      %span
+        Achive
   .clear-10

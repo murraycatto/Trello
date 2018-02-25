@@ -27,15 +27,22 @@ class CardsController < ApplicationController
 
   def update_list
     #//TODO Add validations
-    if @card.update(card_list_params)
-      render :json =>{sucess:"1",message:"Card List updated",card:@card}
-    else
-      render :json =>{sucess:"1",message:"Card List failed to update",errors:@card.errors}
+    old_list = @card.list
+    if old_list.id.to_s != params[:list_id].to_s
+      if @card.update(card_list_params)
+        card_activity = @card.card_activities.new
+        card_activity.build_card_activity_item(content:"moved this card from #{old_list.name} to #{@card.list.name}",user:current_user)
+        card_activity.save!
+        render :json =>{sucess:"1",message:"Card List updated",card:@card}
+      else
+        render :json =>{sucess:"1",message:"Card List failed to update",errors:@card.errors}
+      end
     end
   end
 
   def comments
-    @card_comment = @card.card_comments.new(card_comment_params)
+    card_activity = @card.card_activities.new()
+    @card_comment = card_activity.build_card_comment(card_comment_params)
     @card_comment.user = current_user
     if @card_comment.save
       render :comments, layout: false
@@ -46,7 +53,7 @@ class CardsController < ApplicationController
 
   private
     def set_card
-      @card = Card.includes(:card_comments).find(params[:id])
+      @card = Card.includes(:card_activities).find(params[:id])
     end
 
     def card_list_params

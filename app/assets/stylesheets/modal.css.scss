@@ -1,13 +1,14 @@
 #ModalHolder{
   width: 600px;
   height: auto;
-  background: #fff;
+  background: #edeff0;
   margin-left: auto;
   margin-right: auto;
   display: block;
   float: none;
   clear: both;
   padding: 10px;
+  margin-bottom: 150px;
 }
 #ModalOverlay{
 }
@@ -89,31 +90,15 @@
       }
     }
     textarea.card-comment{
+      background: #fff;
       font-family: Helvetica,sans-serif;
-      overflow: hidden;
-      overflow-wrap: break-word;
-      height: 75px;
-      background: transparent none repeat scroll 0% 0% !important;
-      z-index: auto;
       position: relative;
       line-height: 18px;
       font-size: 14px;
       transition: none 0s ease 0s;
-      background: none;
-      height: 75px;
-      margin: 0;
-      min-height: 75px;
       padding: 9px 11px;
-      padding-bottom: 0;
       width: 100%;
-      resize: none;
-      resize: vertical;
-      -webkit-transition: background 85ms ease-in,border-color 85ms ease-in;
-      transition: background 85ms ease-in,border-color 85ms ease-in;
-      -webkit-box-sizing: border-box;
       box-sizing: border-box;
-      -webkit-appearance: none;
-      background-color: #e2e4e6;
       border: 1px solid #cdd2d4;
       border-radius: 3px;
       display: block;
@@ -142,6 +127,31 @@
     .modal-section-right{
       width: 80%;
       float: left;
+    }
+    .user-name-card-comment{
+      font-weight: bold;
+    }
+    .card-comment-text{
+        background: #fff;
+        float: none;
+        width: auto;
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 3px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.23);
+        box-shadow: 0 1px 2px rgba(0,0,0,.23);
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        clear: both;
+        display: inline-block;
+        margin: 6px 2px 6px 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    .card-comment-time-ago{
+      color: #838c91;
+      font-size: 13px;
     }
   }
   .modal-section-header{

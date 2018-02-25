@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180224142625) do
+ActiveRecord::Schema.define(version: 20180225083442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,13 +24,31 @@ ActiveRecord::Schema.define(version: 20180224142625) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "card_comments", force: :cascade do |t|
-    t.text "comment"
+  create_table "card_activities", force: :cascade do |t|
     t.bigint "card_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "activity_type"
+    t.index ["card_id"], name: "index_card_activities_on_card_id"
+  end
+
+  create_table "card_activity_items", force: :cascade do |t|
+    t.bigint "card_activity_id"
     t.bigint "user_id"
-    t.index ["card_id"], name: "index_card_comments_on_card_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_activity_id"], name: "index_card_activity_items_on_card_activity_id"
+    t.index ["user_id"], name: "index_card_activity_items_on_user_id"
+  end
+
+  create_table "card_comments", force: :cascade do |t|
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "card_activity_id"
+    t.index ["card_activity_id"], name: "index_card_comments_on_card_activity_id"
     t.index ["user_id"], name: "index_card_comments_on_user_id"
   end
 
@@ -83,6 +101,9 @@ ActiveRecord::Schema.define(version: 20180224142625) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "card_comments", "cards"
+  add_foreign_key "card_activities", "cards"
+  add_foreign_key "card_activity_items", "card_activities"
+  add_foreign_key "card_activity_items", "users"
+  add_foreign_key "card_comments", "card_activities"
   add_foreign_key "card_comments", "users"
 end

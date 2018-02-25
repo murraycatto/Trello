@@ -2,4 +2,11 @@
   .user-profile-pic
     = card_comment.user.name.chars.first
 .modal-section-right
-  = card_comment.comment
+  .user-name-card-comment
+    = card_comment.user.name
+  .card-comment-text
+    = card_comment.comment
+  .card-comment-time-ago
+    = time_ago_in_words(card_comment.created_at)
+    ago
+.clear-10

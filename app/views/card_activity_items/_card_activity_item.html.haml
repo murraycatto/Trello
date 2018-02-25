@@ -1,0 +1,12 @@
+.modal-section-left
+  .user-profile-pic
+    = card_activity_item.user.name.chars.first
+.modal-section-right
+  .user-name-card-comment
+    = card_activity_item.user.name
+  .card-comment-text
+    = card_activity_item.content
+  .card-comment-time-ago
+    = time_ago_in_words(card_activity_item.created_at)
+    ago
+.clear-10

@@ -1,0 +1,7 @@
+= puts card_activity.inspect
+- if card_activity.is_card_comment?
+  - card_comment = card_activity.card_comment
+  = render card_comment
+- elsif card_activity.is_card_activity_item?
+  - card_activity_item = card_activity.card_activity_item
+  = render card_activity_item
