@@ -131,6 +131,11 @@
     .user-name-card-comment{
       font-weight: bold;
     }
+    .user-name-card-activity{
+      font-weight: bold;
+      float: left;
+      margin-right: 5px;
+    }
     .card-comment-text{
         background: #fff;
         float: none;
@@ -148,10 +153,21 @@
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 100%;
+        clear: both;
     }
-    .card-comment-time-ago{
+    .card-activity-text{
+      font-size: 14px;
+
+    }
+    .card-comment-time-ago,.card-activity-time-ago{
       color: #838c91;
       font-size: 13px;
+    }
+    .card-line{
+      background: #e2e4e6;
+      clear: both;
+      height: 1px;
+      width: 100%;
     }
   }
   .modal-section-header{

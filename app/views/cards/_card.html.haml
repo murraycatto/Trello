@@ -1,3 +1,10 @@
 .card-item-holder{onclick:"dynamicAjaxGet('#{card_path(card)}','ModalHolder','showModals();')",data:{id:card.id}}
   .card-item-name{id:"CardName#{card.id}"}
     = card.name
+  .card-item-icons
+    - if card.card_comments.count > 0
+      .icon-holder
+        %span.icon.icon-comment
+        %span.icon-text
+          = card.card_comments.count
+    

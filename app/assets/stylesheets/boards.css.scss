@@ -294,6 +294,35 @@ input[type="submit"].btn-save {
   z-index: 0;
   color: #444;
   font-size: 14px;
+  .card-item-icons{
+    max-width: 100%;
+    .icon-holder{
+      color: #838c91;
+      display: inline-block;
+      margin: 0 4px 4px 0;
+      max-width: 100%;
+      min-height: 18px;
+      overflow: hidden;
+      position: relative;
+      padding: 1px 2px;
+      text-decoration: none;
+      text-overflow: ellipsis;
+      vertical-align: top;
+      .icon.icon-comment{
+        height: 18px;
+        font-size: 12px;
+        line-height: 18px;
+        width: 19px;
+        font-weight: 400;
+      }
+      .icon-text{
+        height: 18px;
+        font-size: 12px;
+        padding: 0 2px;
+        white-space: nowrap;
+      }
+    }
+  }
 }
 .card-item-holder.dragging{
 	-webkit-transform: rotate(10deg);
