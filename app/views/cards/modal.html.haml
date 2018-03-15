@@ -25,7 +25,9 @@
         = f.text_area :comment, class:"card-comment", placeholder: "Write a comment..."
         = f.submit "Save",class: "btn-save"
     .clear-10
-
+    #CardCheckLists
+      - @card.checklists.each do |checklist|
+        = render checklist
     .modal-section-header
       .icon.icon-activity
       %span
@@ -45,10 +47,23 @@
     .modal-button
       .icon.icon-label
       Labels
-    .modal-button
+    .modal-button.show-body-clicks.hide-body-clicks-btn{onclick:"$('#create-checklist-form').show();$('#ChecklistName').focus();"}
       .icon.icon-checklist
       %span
         Checklist
+    #create-checklist-form.card-form-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;"}
+      .card-form-header
+        .card-form-title
+          Add Checklist
+          .close-button-holder{onclick:"$('#create-checklist-form').hide();$('#ChecklistName').focus();"}
+            .fa.fa-times
+      = form_with(model: @card.checklists.new, url:  checklists_card_path) do |f|
+        .card-form-label
+          = f.label :title
+        .card-form-input
+          = f.text_field :title, value:"Checklist", id:"ChecklistName"
+        = f.submit "Add", class: "btn-save"
+        .clear-10
     .modal-button
       .icon.icon-clock
       %span

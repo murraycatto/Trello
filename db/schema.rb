@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180225083442) do
+ActiveRecord::Schema.define(version: 20180315181104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,14 @@ ActiveRecord::Schema.define(version: 20180225083442) do
     t.integer "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "checklists", force: :cascade do |t|
+    t.string "title"
+    t.bigint "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_checklists_on_card_id"
   end
 
   create_table "colors", force: :cascade do |t|
@@ -106,4 +114,5 @@ ActiveRecord::Schema.define(version: 20180225083442) do
   add_foreign_key "card_activity_items", "users"
   add_foreign_key "card_comments", "card_activities"
   add_foreign_key "card_comments", "users"
+  add_foreign_key "checklists", "cards"
 end

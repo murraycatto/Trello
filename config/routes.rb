@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       patch :update_list
       put :update_list
       post :comments
+      post :checklists
     end
   end
 

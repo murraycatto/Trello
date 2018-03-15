@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_card, only: [:show,:update_list,:update,:comments]
+  before_action :set_card, only: [:show,:update_list,:update,:comments,:checklists]
 
   def show
     render :modal, layout: false
@@ -41,9 +41,7 @@ class CardsController < ApplicationController
   end
 
   def comments
-    card_activity = @card.card_activities.new()
-    @card_comment = card_activity.build_card_comment(card_comment_params)
-    @card_comment.user = current_user
+    card_activity = @card.card_activities.new(checklist_params)
     if @card_comment.save
       render :comments, layout: false
     else
@@ -51,9 +49,22 @@ class CardsController < ApplicationController
     end
   end
 
+  def checklists
+    @checklist = @card.checklists.new(checklist_params)
+    if @checklist.save
+      render :checklists, layout: false
+    else
+      render :json =>{sucess:"1",message:"Checklist failed to create",errors:@checklist.errors}
+    end
+  end
+
   private
     def set_card
-      @card = Card.includes(:card_activities).find(params[:id])
+      @card = Card.includes(:card_activities, :checklists).find(params[:id])
+    end
+
+    def card_list_params
+      params.permit(:list_id)
     end
 
     def card_list_params
@@ -62,6 +73,10 @@ class CardsController < ApplicationController
 
     def card_comment_params
       params.require(:card_comment).permit(:comment)
+    end
+
+    def checklist_params
+      params.require(:checklist).permit(:title)
     end
 
     def card_params
