@@ -1,0 +1,7 @@
+AllCops:
+  Exclude:
+    - db/**
+    - db/migrate/**
+    - bin/**
+    - config/**
+    - config/initializers/**

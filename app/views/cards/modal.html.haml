@@ -21,7 +21,7 @@
         = current_user.name.chars.first
     .modal-section-right
       - card_activity =  @card.card_activities.new
-      = form_with model: card_activity.build_card_comment , url: comments_card_path do |f|
+      = form_with model: card_activity.build_card_comment , url: card_card_comments_path(@card) do |f|
         = f.text_area :comment, class:"card-comment", placeholder: "Write a comment..."
         = f.submit "Save",class: "btn-save"
     .clear-10
@@ -57,7 +57,7 @@
           Add Checklist
           .close-button-holder{onclick:"$('#create-checklist-form').hide();$('#ChecklistName').focus();"}
             .fa.fa-times
-      = form_with(model: @card.checklists.new, url:  checklists_card_path) do |f|
+      = form_with(model: @card.checklists.new, url:  card_checklists_path(@card)) do |f|
         .card-form-label
           = f.label :title
         .card-form-input
