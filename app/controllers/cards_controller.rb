@@ -19,7 +19,11 @@ class CardsController < ApplicationController
     if @card.update(params.permit(:name))
       render js: { sucess: '1', message: 'Card updated', card: @card }
     else
-      render json: { sucess: '1', message: 'Card failed to update' }
+      render json: {
+        sucess: '0',
+        message: 'Card failed to update',
+        errors: @card.errors
+      }
     end
   end
 
@@ -38,15 +42,15 @@ class CardsController < ApplicationController
 
   private
 
-    def set_card
-      @card = Card.includes(:card_activities, :checklists).find(params[:id])
-    end
+  def set_card
+    @card = Card.includes(:card_activities, :checklists).find(params[:id])
+  end
 
-    def card_list_params
-      params.permit(:list_id)
-    end
+  def card_list_params
+    params.permit(:list_id)
+  end
 
-    def card_params
-      params.require(:card).permit(:name, :list_id)
-    end
+  def card_params
+    params.require(:card).permit(:name, :list_id)
+  end
 end

@@ -13,4 +13,6 @@
       .icon-check.icon
     .checklist-item-name-holder
       .checklist-item-name
-        Test Name 
+        Test Name
+= form_with(model: checklist.checklist_items.new, url: card_checklist_checklist_items_path(@card,checklist)) do |f|
+  = f.text_field :name

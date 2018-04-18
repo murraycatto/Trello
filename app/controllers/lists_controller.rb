@@ -5,9 +5,9 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     respond_to do |format|
       if @list.save
-        format.html { redirect_to board_path(@list.board)}
+        format.html { redirect_to board_path(@list.board) }
       else
-        format.html { redirect_to boards_path}
+        format.html { redirect_to boards_path }
       end
     end
   end
@@ -22,7 +22,8 @@ class ListsController < ApplicationController
   end
 
   private
-    def list_params
-      params.require(:list).permit(:name, :board_id)
-    end
+
+  def list_params
+    params.require(:list).permit(:name, :board_id)
+  end
 end

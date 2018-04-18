@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  resources :lists, only: [:create,:update]
-  resources :boards, only: [:index,:show,:create]
+  resources :lists, only: %i[create update]
+  resources :boards, only: %i[index show create]
   resources :teams, only: [:create]
-
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
@@ -11,11 +10,13 @@ Rails.application.routes.draw do
 
   resources :cards do
     resources :card_comments, only: [:create]
-    resources :checklists, only: [:create]
+
+    resources :checklists, only: [:create] do
+      resources :checklist_items, only: [:create]
+    end
     member do
       patch :update_list
       put :update_list
     end
   end
-
 end
