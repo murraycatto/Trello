@@ -51,21 +51,20 @@ gem 'rails_12factor', group: :production
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
-
 end
 
 group :development do
+  gem 'guard-rspec', require: false
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'pry-rails'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-  gem 'guard-rspec', require: false
 end
 
 group :test do
-  gem 'shoulda-matchers'
   gem 'factory_bot'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
