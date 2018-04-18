@@ -1,12 +1,12 @@
 require 'rails_helper'
-describe Team do
+describe List do
   context 'validations' do
     it { should validate_presence_of :name }
-    it { should validate_presence_of :user }
+    it { should validate_presence_of :board }
   end
 
   context 'associations' do
-    it { should have_many :boards }
-    it { should belong_to :user }
+    it { should belong_to :board }
+    it { should have_many :cards }
   end
 end
