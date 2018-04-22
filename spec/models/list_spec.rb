@@ -5,7 +5,7 @@ describe List do
     it { should validate_presence_of :board }
   end
 
-  context 'associations' do
+  context 'associations'  do
     it { should belong_to :board }
     it { should have_many :cards }
   end

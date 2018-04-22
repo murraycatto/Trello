@@ -1,3 +1,4 @@
+# Boards Controller
 class BoardsController < ApplicationController
   before_action :set_board, only: [:show]
   before_action :set_teams, only: [:index]

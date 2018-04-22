@@ -65,6 +65,7 @@ end
 group :test do
   gem 'factory_bot'
   gem 'shoulda-matchers'
+  gem 'faker'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -7,6 +7,6 @@ class CardActivityItem < ApplicationRecord
   after_initialize :set_activity_type
 
   def set_activity_type
-    card_activity.activity_type = 1
+    card_activity.activity_type = 1 unless card_activity.nil?
   end
 end
