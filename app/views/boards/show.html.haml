@@ -16,7 +16,7 @@
         .add-a-list.hide-body-clicks-btn.show-body-clicks{onclick:"$('#create-list-form').slideDown(100);$('.add-a-list').hide();$('#ListName').focus();"}
           Add a list...
         #create-list-form.hide-body-clicks.stop-show-body-clicks{style:"display:none;"}
-          = form_with(model: List.new, url: List.new) do |f|
+          = form_with(model: List.new, url: List.new, id: "ListForm") do |f|
             = f.text_field :name, placeholder:"Add a list...",id:"ListName",class:"create-list"
             = f.hidden_field :board_id, value: @board.id
             = f.submit "Save",class: "btn-save"

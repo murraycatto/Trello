@@ -63,9 +63,12 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
   gem 'factory_bot'
-  gem 'shoulda-matchers'
   gem 'faker'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

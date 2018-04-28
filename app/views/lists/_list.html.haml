@@ -1,4 +1,4 @@
-.list-item-holder{data:{id:list.id}}
+.list-item-holder{data:{id:list.id},id:"List#{list.id}"}
   .list-item
     .list-item-name
       = list.name
@@ -8,7 +8,7 @@
     - cards.each do |card|
       = render card
   .new-card-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;",id:"new-card-form-#{list.id}"}
-    = form_with(model: Card.new, url: Card.new) do |f|
+    = form_with(model: Card.new, url: Card.new, id: "CardForm#{list.id}") do |f|
       = f.text_area :name, id: "NewCardName#{list.id}"
       = f.hidden_field :list_id, value: list.id
       = f.submit "Add",class: "btn-save"

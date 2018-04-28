@@ -1,3 +1,4 @@
+# Cards Controller
 class CardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_card, only: %i[show update_list update]
@@ -29,13 +30,25 @@ class CardsController < ApplicationController
 
   def update_list
     if @card.new_list?(params[:list_id])
+      old_list_name = @card.list.name
       if @card.update(card_list_params)
         card_activity = @card.card_activities.new
-        card_activity.build_card_activity_item(content: "moved this card from #{old_list.name} to #{@card.list.name}", user: current_user)
+        card_activity.build_card_activity_item(
+          content: "moved this card from #{old_list_name} to #{@card.list.name}",
+          user: current_user
+        )
         card_activity.save!
-        render json: { sucess: '1', message: 'Card List updated', card: @card }
+        render json: {
+          sucess: '1',
+          message: 'Card List updated',
+          card: @card
+        }
       else
-        render json: { sucess: '1', message: 'Card List failed to update', errors: @card.errors }
+        render json: {
+          sucess: '1',
+          message: 'Card List failed to update',
+          errors: @card.errors
+        }
       end
     end
   end

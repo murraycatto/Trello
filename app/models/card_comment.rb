@@ -5,6 +5,6 @@ class CardComment < ApplicationRecord
   after_initialize :set_activity_type
 
   def set_activity_type
-    card_activity.activity_type = 0
+    card_activity.activity_type = 0 unless card_activity.nil?
   end
 end

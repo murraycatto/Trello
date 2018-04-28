@@ -9,11 +9,7 @@ class BoardsController < ApplicationController
 
   def create
     @board = Board.new(board_params)
-    if @board.save
-      redirect_to boards_url
-    else
-      render :index
-    end
+    redirect_to board_url(@board) if @board.save
   end
 
   private

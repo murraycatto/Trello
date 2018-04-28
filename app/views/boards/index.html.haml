@@ -12,7 +12,7 @@
           Create Team
           .close-button-holder{onclick:"$('#create-team-form').hide();"}
             .fa.fa-times
-      = form_with(model: Team.new, url: [ Team.new ]) do |f|
+      = form_with(model: Team.new, url: [ Team.new ],id: "TeamForm") do |f|
         .card-form-body
           .card-form-label
             = f.label :name

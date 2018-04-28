@@ -21,7 +21,7 @@
         Create Board
         .close-button-holder{onclick:"$('#create-board-form-#{team.id}').hide();"}
           .fa.fa-times
-    = form_with(model: Board.new, url: Board.new) do |f|
+    = form_with(model: Board.new, url: Board.new, id:"BoardForm#{team.id}") do |f|
       .card-form-body
         .card-form-label
           = f.label :name
