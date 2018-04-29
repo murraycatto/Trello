@@ -1,4 +1,4 @@
-.boards-wrapper{
+.boards-wrapper {
   max-width: 85%;
   margin-left: auto;
   margin-right: auto;
@@ -6,24 +6,26 @@
   display: block;
 }
 
-.team-holder{
-  .icon{
+.team-holder {
+  .icon {
     color: #999;
     float: left;
     margin-right: 10px;
     margin-top: -3px;
     font-size: 20px;
   }
-  .team-name{
+
+  .team-name {
     font-size: 15px;
     font-weight: bold;
   }
 }
 
-.create-board-holder{
+.create-board-holder {
   width: 25%;
   float: left;
-  .create-board-item{
+
+  .create-board-item {
     background-color: #e2e4e6;
     height: 100px;
     color: #838c91;
@@ -38,15 +40,15 @@
     padding-left: 10px;
   }
 
-  .create-board-item:hover{
+  .create-board-item:hover {
     cursor: pointer;
     background-color: #d6dadc;
     color: #4d4d4d;
   }
 }
 
-.create-new-team-holder{
-  .create-new-team-item{
+.create-new-team-holder {
+  .create-new-team-item {
     color: #838c91;
     text-decoration: underline;
     text-decoration: underline;
@@ -55,18 +57,19 @@
     border-radius: 2px;
     margin-bottom: 20px;
   }
-  .create-new-team-item:hover{
+
+  .create-new-team-item:hover {
     background: #d6dadc;
     color: #4d4d4d;
     cursor: pointer;
   }
 }
 
-.boards-holder{
+.boards-holder {
   width: 25%;
   float: left;
 
-  .board-item{
+  .board-item {
     height: 100px;
     font-size: 15px;
     line-height: 35px;
@@ -82,40 +85,43 @@
   }
 }
 
-
-.board-show-holder{
+.board-show-holder {
   height: 100vh;
   overflow: hidden;
-  .nav-bar{
+
+  .nav-bar {
     background: rgba(0,0,0,.15);
   }
 }
 
-.second-nav-bar{
+.second-nav-bar {
   padding: 20px;
-  .second-nav-board-name{
+
+  .second-nav-board-name {
     color: #fff;
     float: left;
     font-size: 20px;
     font-weight: bold;
   }
-  .second-nav-show-menu{
+
+  .second-nav-show-menu {
     float: right;
     color: #fff;
     padding: 5px;
     border-radius: 2px;
-    span{
+
+    span {
       text-decoration: underline;
     }
   }
-  .second-nav-show-menu:hover{
+
+  .second-nav-show-menu:hover {
     background: rgba(0,0,0,.12);
     cursor: pointer;
   }
 }
 
-
-.lists-container{
+.lists-container {
   white-space: nowrap;
   margin-bottom: 10px;
   overflow-x: auto;
@@ -126,7 +132,7 @@
   min-height: 800px !important;
 }
 
-.add-list-holder{
+.add-list-holder {
   margin-right: 10px;
   white-space: nowrap;
   width: 270px;
@@ -138,50 +144,56 @@
   position: relative;
   padding-bottom: 45px;
   overflow: visible;
-  .add-list-form{
-    .add-a-list{
+
+  .add-list-form {
+    .add-a-list {
       width: 100%;
       padding: 10px;
       color: hsla(0,0%,100%,.7);
       background: rgba(0,0,0,.12);
       cursor: pointer;
       border-radius: 3px;
-      box-sizing : border-box;
+      box-sizing: border-box;
       font-size: 15px;
     }
-    form{
+
+    form {
       height: auto;
       min-height: 30px;
       padding: 4px;
       border-radius: 3px;
       background-color: #e2e4e6;
     }
-    input::placeholder, textarea::placeholder {
+
+    input::placeholder,
+    textarea::placeholder {
       color: #838c91;
     }
-    input[type="text"]{
+
+    input[type="text"] {
       background: rgba(0,0,0,.05);
       width: 100%;
       border-radius: 3px;
       display: block;
       margin-bottom: 12px;
       padding: 10px;
-      box-sizing : border-box;
+      box-sizing: border-box;
       font-size: 15px;
       box-shadow: inset 0 1px 8px rgba(0,0,0,.15);
       border: 1px solid #cdd2d4;
       border-color: #aaa;
-
     }
 
-    .fa{
+    .fa {
       color: #999;
     }
-    .fa:hover{
+
+    .fa:hover {
       color: #4d4d4d;
     }
   }
 }
+
 input[type="submit"].btn-save {
   background: #5aac44;
   -webkit-box-shadow: 0 1px 0 #519839;
@@ -203,13 +215,12 @@ input[type="submit"].btn-save {
   width: 90px;
 }
 
-.list-item-holder{
+.list-item-holder {
   background: #f1f1f1;
   border-bottom: 1px solid #c3c3c3;
   white-space: nowrap;
   width: 270px;
   margin: 0 5px;
-  margin-left: 5px;
   box-sizing: border-box;
   display: inline-block;
   vertical-align: top;
@@ -219,36 +230,45 @@ input[type="submit"].btn-save {
   overflow: visible;
   border-radius: 3px;
   padding-bottom: 40px;
-  .list-item{
-    .list-item-name{
+
+  .list-item {
+    .list-item-name {
       font-weight: bold;
       color: #333;
       font-size: 16px;
       padding: 10px;
     }
   }
-  .add-a-card-holder{
-      position: absolute;
-      bottom: 0;
-      padding: 10px 0px 10px 10px;
-      color: #838c91;
-      font-size: 14px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .add-a-card-holder:hover{
-      background-color: #cdd2d4;
-      color: #4d4d4d;
-      text-decoration: underline;
-      cursor: pointer;
-    }
+
+  .add-a-card-holder {
+    position: absolute;
+    bottom: 0;
+    padding: 10px 0 10px 10px;
+    color: #838c91;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .add-a-card-holder:hover {
+    background-color: #cdd2d4;
+    color: #4d4d4d;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 }
 
-.new-card-holder{
+.new-card-holder {
   margin-bottom: -30px;
-  form{
-    padding: 0px 10px 0px 10px;
-    textarea{
+
+  .fa.fa-times {
+    cursor: pointer;
+  }
+
+  form {
+    padding: 0 10px;
+
+    textarea {
       width: 100%;
       clear: both;
       display: block;
@@ -263,19 +283,22 @@ input[type="submit"].btn-save {
       resize: none;
       border-bottom: 1px solid #ccc;
     }
-    textarea:focus{
+
+    textarea:focus {
       outline: none;
     }
   }
 }
-.cards-holder{
+
+.cards-holder {
   max-height: 500px;
   overflow-y: scroll;
 }
-.card-item-holder{
+
+.card-item-holder {
   margin-left: 10px;
   margin-right: 10px;
-  padding: 10px 7.5px 10px 7.5px;
+  padding: 10px 7.5px;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
   border-radius: 3px;
@@ -292,9 +315,11 @@ input[type="submit"].btn-save {
   z-index: 0;
   color: #444;
   font-size: 14px;
-  .card-item-icons{
+
+  .card-item-icons {
     max-width: 100%;
-    .icon-holder{
+
+    .icon-holder {
       color: #838c91;
       display: inline-block;
       margin: 0 4px 4px 0;
@@ -306,14 +331,16 @@ input[type="submit"].btn-save {
       text-decoration: none;
       text-overflow: ellipsis;
       vertical-align: top;
-      .icon.icon-comment{
+
+      .icon.icon-comment {
         height: 18px;
         font-size: 12px;
         line-height: 18px;
         width: 19px;
         font-weight: 400;
       }
-      .icon-text{
+
+      .icon-text {
         height: 18px;
         font-size: 12px;
         padding: 0 2px;
@@ -322,17 +349,20 @@ input[type="submit"].btn-save {
     }
   }
 }
-.card-item-holder.dragging{
-	-webkit-transform: rotate(10deg);
-	-moz-transform: rotate(10deg);
-	-o-transform: rotate(10deg);
-	-ms-transform: rotate(10deg);
-	transform: rotate(10deg);
+
+.card-item-holder.dragging {
+  -webkit-transform: rotate(10deg);
+  -moz-transform: rotate(10deg);
+  -o-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  transform: rotate(10deg);
 }
-.card-item-holder.grayed-out{
-	display: none;
+
+.card-item-holder.grayed-out {
+  display: none;
 }
-.list-item-holder.drop-hover .droppable-area{
+
+.list-item-holder.drop-hover .droppable-area {
   background: #c4c9cc;
   min-height: 30px;
   border-radius: 3px;
