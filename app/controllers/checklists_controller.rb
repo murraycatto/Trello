@@ -1,7 +1,7 @@
 class ChecklistsController < ApplicationController
   def create
-    card = Card.find(params[:card_id])
-    @checklist = card.checklists.new(checklist_params)
+    @card = Card.find(params[:card_id])
+    @checklist = @card.checklists.new(checklist_params)
     if @checklist.save
       render :create, layout: false
     else

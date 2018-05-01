@@ -3,23 +3,17 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to board_path(@list.board) }
-      else
-        format.html { redirect_to boards_path }
-      end
-    end
+    redirect_to board_path(@list.board) if @list.save
   end
 
-  def update
-    @list = List.find(params[:id])
-    if @list.update(list_params)
-      redirect_to @list
-    else
-      redirect_to root_path
-    end
-  end
+  # def update
+  #   @list = List.find(params[:id])
+  #   if @list.update(list_params)
+  #     redirect_to @list
+  #   else
+  #     redirect_to root_path
+  #   end
+  # end
 
   private
 
