@@ -12,11 +12,10 @@ RSpec.feature 'CardComments', type: :feature do
       @card = create :card, list: list
       visit board_path(board)
     end
-    scenario 'should pass' do
-      page.evaluate_script("dynamicAjaxGet('#{card_path(@card)}','ModalHolder','showModals();')")
-      puts page.body
-    end
-    scenario 'should fail' do
-    end
+    # scenario 'should pass' do
+    #   page.evaluate_script("dynamicAjaxGet('#{card_path(@card)}','ModalHolder','showModals();')")
+    # end
+    # scenario 'should fail' do
+    # end
   end
 end
