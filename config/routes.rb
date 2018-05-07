@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   }
   root to: 'home#index'
 
+  get 'checklist_item_status/:id', to: 'checklist_items#update_status'
+
   resources :cards do
     resources :card_comments, only: [:create]
 

@@ -1,3 +1,4 @@
+# Checklists Controller
 class ChecklistsController < ApplicationController
   def create
     @card = Card.find(params[:card_id])

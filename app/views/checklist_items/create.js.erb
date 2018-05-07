@@ -1,1 +1,3 @@
-alert("Hello");
+$('#CheckListItemsHolder<%=@checklist.id%>').append('<%= j render(@checklist_item) %>');
+$("#ChecklistItemName<%=@checklist.id%>").val("");
+updateChecklistPercentage("<%=@checklist.id%>","<%=@checklist.complete_percentage%>","<%=@checklist.complete?%>");

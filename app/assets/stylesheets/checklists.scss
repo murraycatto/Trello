@@ -1,3 +1,33 @@
-// Place all the styles related to the Checklists controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+input.new-checklist-item-name{
+  background: #edeff0;
+  border: none;
+  margin-left: 40px;
+  margin-top: 10px;
+  width: 88%;
+  padding: 5px;
+  border-radius: 5px;
+}
+input.new-checklist-item-name:hover{
+  background: #d6dadc;
+  color: #4d4d4d;
+  cursor: pointer;
+}
+input.new-checklist-item-name:focus{
+  background: #fff;
+  background: #fff;
+  border-color: #298fca;
+  -webkit-box-shadow: 0 0 2px #298fca;
+  box-shadow: 0 0 2px #298fca;
+  color: #4d4d4d;
+  cursor: text;
+}
+.new-checklist-item-save{
+  margin-left: 40px !important;
+  display: none !important;
+}
+.new-checklist-item-save:hover,.new-checklist-item-save:focus{
+  display: block !important;
+}
+input.new-checklist-item-name:focus + .new-checklist-item-save {
+  display: block !important;
+}

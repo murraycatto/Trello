@@ -1,5 +1,5 @@
 #ModalHolder{
-  width: 600px;
+  width: 700px;
   height: auto;
   background: #edeff0;
   margin-left: auto;
@@ -201,9 +201,9 @@
         -webkit-transition: width .14s ease-in,background .14s ease-in;
         transition: width .14s ease-in,background .14s ease-in;
       }
-      .checklist-progress.complete{
-        background: #61bd4f;
-      }
+    }
+    .checklist-progress-bar-holder.complete .checklist-progress{
+      background: #61bd4f;
     }
     .checklist-item{
       clear: both;
@@ -263,10 +263,18 @@
           width: 19px;
         }
       }
-      .checkbox:hover .icon-check{
+      .checkbox:hover .icon-check,.checkbox.complete .icon-check{
         color: #d6dadc;
         cursor: pointer;
         text-indent: 0;
+      }
+      .checkbox.complete + .checklist-item-name-holder .checklist-item-name{
+        color: #838c91;
+        font-style: italic;
+        text-decoration: line-through;
+      }
+      .checkbox.incomplete .icon-check{
+        text-indent: 100%;
       }
       .checklist-item-name-holder{
         -webkit-box-flex: 1;

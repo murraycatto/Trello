@@ -2,17 +2,15 @@
   .icon-checklist.icon
   %span
     = checklist.title
-.checklist-progress-bar-holder
+.checklist-progress-bar-holder{id:"CheckListPercentagesHolder#{checklist.id}",class:"#{checklist.complete_status}"}
   %span
-    0%
+    = checklist.complete_percentage
+    &#37;
   .checklist-progress-bar
-    .checklist-progress{style:"width:50%;"}
-.checklist-items-holder
-  .checklist-item
-    .checkbox
-      .icon-check.icon
-    .checklist-item-name-holder
-      .checklist-item-name
-        Test Name
+    .checklist-progress{style:"width:#{checklist.complete_percentage}%;"}
+.checklist-items-holder{id:"CheckListItemsHolder#{checklist.id}"}
+  - checklist.checklist_items.each do |checklist_item|
+    = render checklist_item
 = form_with(model: checklist.checklist_items.new, url: card_checklist_checklist_items_path(@card,checklist)) do |f|
-  = f.text_field :name
+  = f.text_field :name,id:"ChecklistItemName#{checklist.id}", class: "new-checklist-item-name", placeholder: "Add an item..."
+  = f.submit 'Add', class: "btn-save new-checklist-item-save"
