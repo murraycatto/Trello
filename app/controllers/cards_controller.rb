@@ -13,46 +13,31 @@ class CardsController < ApplicationController
   end
 
   def update
-    if @card.update(params.permit(:name))
-      render js: { sucess: '1', message: 'Card updated', card: @card }
-    else
-      render json: {
-        sucess: '0',
-        message: 'Card failed to update',
-        errors: @card.errors
-      }
-    end
+    return unless @card.update(params.permit(:name))
+    render js: { sucess: '1', message: 'Card updated', card: @card }
   end
 
   def update_list
-    if @card.new_list?(params[:list_id])
-      old_list_name = @card.list.name
-      if @card.update(card_list_params)
-        card_activity = @card.card_activities.new
-        card_activity.build_card_activity_item(
-          content: "moved this card from #{old_list_name} to #{@card.list.name}",
-          user: current_user
-        )
-        card_activity.save!
-        render json: {
-          sucess: '1',
-          message: 'Card List updated',
-          card: @card
-        }
-      else
-        render json: {
-          sucess: '1',
-          message: 'Card List failed to update',
-          errors: @card.errors
-        }
-      end
-    end
+    return unless @card.new_list?(params[:list_id])
+    old_list_name = @card.list.name
+    return unless @card.update(card_list_params)
+    @card.add_card_activity(
+      "moved this card from #{old_list_name} to #{@card.list.name}",
+      current_user
+    )
+    render json: {
+      sucess: '1',
+      message: 'Card List updated',
+      card: @card
+    }
   end
 
   private
 
   def set_card
     @card = Card.includes(:card_activities, :checklists).find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_url
   end
 
   def card_list_params
