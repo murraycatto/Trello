@@ -1,7 +1,7 @@
-function updateChecklistItemStatus(ChecklistItemID){
+function toggleChecklistItemStatus(ChecklistItemID){
   $.ajax({
     method: "GET",
-    url: "/checklist_item_status/" + ChecklistItemID + ".json"
+    url: "/toggle_checklist_item_status/" + ChecklistItemID + ".json"
   }).done(function(data) {
     $("#ChecklistItem"+ChecklistItemID).removeClass("complete");
     $("#ChecklistItem"+ChecklistItemID).removeClass("incomplete");

@@ -11,6 +11,6 @@
 .checklist-items-holder{id:"CheckListItemsHolder#{checklist.id}"}
   - checklist.checklist_items.each do |checklist_item|
     = render checklist_item
-= form_with(model: checklist.checklist_items.new, url: card_checklist_checklist_items_path(@card,checklist)) do |f|
+= form_with(model: checklist.checklist_items.new, url: checklist_checklist_items_path(checklist)) do |f|
   = f.text_field :name,id:"ChecklistItemName#{checklist.id}", class: "new-checklist-item-name", placeholder: "Add an item..."
   = f.submit 'Add', class: "btn-save new-checklist-item-save"

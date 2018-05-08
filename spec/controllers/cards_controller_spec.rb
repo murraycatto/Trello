@@ -50,6 +50,10 @@ RSpec.describe CardsController, type: :controller do
       put :update_list, params: { id: -1 }
       expect(response).to redirect_to(root_path)
     end
+    it 'should fail' do
+      put :update_list, params: { id: @card.id, list_id: -1 }
+      expect(response.body.blank?).to be_truthy
+    end
   end
 
   describe 'POST #update' do

@@ -8,16 +8,15 @@ Rails.application.routes.draw do
   }
   root to: 'home#index'
 
-  get 'checklist_item_status/:id', to: 'checklist_items#update_status'
+  get 'toggle_checklist_item_status/:id', to: 'checklist_items#toggel_status'
 
   resources :cards do
     resources :card_comments, only: [:create]
 
-    resources :checklists, only: [:create] do
+    resources :checklists, only: [:create], shallow: true do
       resources :checklist_items, only: [:create]
     end
     member do
-      patch :update_list
       put :update_list
     end
   end

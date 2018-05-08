@@ -7,6 +7,7 @@ RSpec.describe ListsController, type: :controller do
     team = create :team, user: user
     @board = create :board, team: team, user: user
   end
+
   let(:valid_attributes) do
     {
       list: {
