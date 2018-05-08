@@ -1,27 +1,20 @@
+# Checklist Items Controller
 class ChecklistItemsController < ApplicationController
+  before_action :set_checklist, :set_js_format, only: [:create]
+  before_action :set_checklist_item, only: [:toggel_status]
   def create
-    @checklist = Checklist.find(params[:checklist_id])
     @checklist_item = @checklist.checklist_items.new(checklist_item_params)
-    render :create, layout: false if @checklist_item.save!
+    return unless @checklist_item.save
+    render :create, layout: false
   end
 
-  def update_status
-    @checklist_item = ChecklistItem.find(params[:id])
+  def toggel_status
     @checklist = @checklist_item.checklist
-    card = @checklist.card
-    if @checklist_item.complete?
-      @checklist_item.incomplete!
-    else
-      @checklist_item.complete!
-    end
-
-    card_activity = card.card_activities.new
-    card_activity.build_card_activity_item(
-      content: "marked #{@checklist_item.name} #{@checklist_item.status} on this card",
-      user: current_user
+    @checklist_item.toggel_status
+    @checklist.card.add_card_activity(
+      "marked #{@checklist_item.name} #{@checklist_item.status} on this card",
+      current_user
     )
-    card_activity.save!
-
     render json: {
       sucess: '1',
       message: 'Sucess',
@@ -33,6 +26,22 @@ class ChecklistItemsController < ApplicationController
   end
 
   private
+
+  def set_js_format
+    request.format = 'js'
+  end
+
+  def set_checklist
+    @checklist = Checklist.find(params[:checklist_id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_url
+  end
+
+  def set_checklist_item
+    @checklist_item = ChecklistItem.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_url
+  end
 
   def checklist_item_params
     params.require(:checklist_item).permit(:name)
