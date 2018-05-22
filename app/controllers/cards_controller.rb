@@ -36,6 +36,8 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.includes(:card_activities, :checklists).find(params[:id])
+    @list = @card.list
+    @board = @list.board
   rescue ActiveRecord::RecordNotFound
     redirect_to root_url
   end

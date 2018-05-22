@@ -8,6 +8,7 @@ describe Card do
     it { should belong_to :list }
     it { should have_many :card_activities }
     it { should have_many :checklists }
+    it { should have_many :card_labels }
     it { should have_many(:card_comments).through :card_activities }
     it { should have_many(:card_activity_items).through :card_activities }
   end

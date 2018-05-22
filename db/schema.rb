@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408171316) do
+ActiveRecord::Schema.define(version: 20180522183624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,15 @@ ActiveRecord::Schema.define(version: 20180408171316) do
     t.index ["user_id"], name: "index_card_comments_on_user_id"
   end
 
+  create_table "card_labels", force: :cascade do |t|
+    t.bigint "label_id"
+    t.bigint "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_card_labels_on_card_id"
+    t.index ["label_id"], name: "index_card_labels_on_label_id"
+  end
+
   create_table "cards", force: :cascade do |t|
     t.string "name"
     t.integer "list_id"
@@ -81,6 +90,17 @@ ActiveRecord::Schema.define(version: 20180408171316) do
     t.string "hex_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "secondary_hex_code"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name"
+    t.bigint "board_id"
+    t.bigint "color_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["board_id"], name: "index_labels_on_board_id"
+    t.index ["color_id"], name: "index_labels_on_color_id"
   end
 
   create_table "lists", force: :cascade do |t|
@@ -123,6 +143,10 @@ ActiveRecord::Schema.define(version: 20180408171316) do
   add_foreign_key "card_activity_items", "users"
   add_foreign_key "card_comments", "card_activities"
   add_foreign_key "card_comments", "users"
+  add_foreign_key "card_labels", "cards"
+  add_foreign_key "card_labels", "labels"
   add_foreign_key "checklist_items", "checklists"
   add_foreign_key "checklists", "cards"
+  add_foreign_key "labels", "boards"
+  add_foreign_key "labels", "colors"
 end

@@ -13,5 +13,6 @@ describe Board do
     it { should belong_to :color }
     it { should have_many(:cards).through :lists }
     it { should have_many(:lists) }
+    it { should have_many(:labels) }
   end
 end

@@ -44,18 +44,32 @@
       .icon.icon-member
       %span
         Members
-    .modal-button
+    .modal-button.show-body-clicks.hide-body-clicks-btn{onclick:"$('#labels-form').show();"}
       .icon.icon-label
       Labels
+    #labels-form.z-10.card-form-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;"}
+      .card-form-header
+        .card-form-title
+          Labels
+          .close-button-holder{onclick:"$('#labels-form').hide();"}
+            .fa.fa-times
+        .card-form-input
+          %input{placeholder:"Search Labels"}
+        .clear-10
+        - @board.labels.each do |label|
+          .card-label-holder
+            .card-label-item{style:"background:#{label.color.hex_code}"}
+              = label.name
+          .clear-5
     .modal-button.show-body-clicks.hide-body-clicks-btn{onclick:"$('#create-checklist-form').show();$('#ChecklistName').focus();"}
       .icon.icon-checklist
       %span
         Checklist
-    #create-checklist-form.card-form-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;"}
+    #create-checklist-form.z-10.card-form-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;"}
       .card-form-header
         .card-form-title
           Add Checklist
-          .close-button-holder{onclick:"$('#create-checklist-form').hide();$('#ChecklistName').focus();"}
+          .close-button-holder{onclick:"$('#create-checklist-form').hide();"}
             .fa.fa-times
       = form_with(model: @card.checklists.new, url:  card_checklists_path(@card)) do |f|
         .card-form-label

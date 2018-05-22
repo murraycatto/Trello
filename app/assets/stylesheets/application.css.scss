@@ -56,6 +56,12 @@ input,textarea{
   clear: both;
   height: 50px;
 }
+.z-1{
+  z-index: 1;
+}
+.z-10{
+  z-index: 10;
+}
 
 a{
   color: $link-color;

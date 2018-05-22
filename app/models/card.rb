@@ -7,4 +7,5 @@ class Card < ApplicationRecord
   has_many :checklists
   has_many :card_comments, through: :card_activities
   has_many :card_activity_items, through: :card_activities
+  has_many :card_labels
 end
