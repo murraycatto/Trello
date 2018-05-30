@@ -1,0 +1,23 @@
+.card-form-title
+  .small-modal-back-button{onclick:"$('.label-edit-form-holder').hide();$('.label-form-holder').show();"}
+    .icon.icon-back
+  Change Label
+  .close-button-holder{onclick:"$('#labels-form').hide();$('.label-form-holder').show();"}
+    .fa.fa-times
+= form_with(model: @label, url: label_path(@label)) do |f|
+  .card-form-label
+    = f.label :name
+  .card-form-input
+    = f.text_field :name
+  .card-form-label
+    = f.label :color, 'Select a color'
+  - Color.all.each do |color|
+    .color-item{id:"LabelColor#{color.id}",style:"background:#{color.hex_code}",onclick:"selectLabelColor(#{color.id});"}
+      - display_color="none"
+      - if color == @label.color
+        - display_color="block"
+      .icon-check.icon{style:"display:#{display_color};"}
+  = f.hidden_field :color_id, id:"LabelColorID"
+  .clear-5
+  = f.submit "Save", class:"btn-save"
+  .clear-10

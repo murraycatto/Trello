@@ -1,0 +1,6 @@
+.card-label-holder
+  .card-label-item{style:"background:#{label.color.hex_code}",class:"label-item#{label.id}"}
+    .label-hover-secondary-hex{style:"background:#{label.color.secondary_hex_code}"}
+    = label.name
+  .card-label-edit-holder{onclick:"getEditLabel(#{label.id});"}
+    .icon.icon-edit

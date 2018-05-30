@@ -1,4 +1,4 @@
-#ModalHolder{
+#ModalHolder {
   width: 700px;
   height: auto;
   background: #edeff0;
@@ -10,9 +10,10 @@
   padding: 10px;
   margin-bottom: 150px;
 }
-#ModalOverlay{
-}
-#ModalOverlay.active{
+
+#ModalOverlay {}
+
+#ModalOverlay.active {
   padding-top: 100px;
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -30,30 +31,34 @@
   z-index: 20;
 }
 
-.moadl-header{
-  .molda-card-icon{
+.moadl-header {
+  .molda-card-icon {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 5px;
     float: left;
-    .icon{
+
+    .icon {
       color: #838c91;
       font-size: 20px;
       width: 20px;
     }
   }
-  .modal-card-name{
+
+  .modal-card-name {
     float: left;
     width: 80%;
-    input{
+
+    input {
       font-weight: bold;
       font-size: 20px;
       color: #333;
       background: none;
       width: 100%;
-      border: 0px;
+      border: 0;
     }
-    input:focus{
+
+    input:focus {
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
       border: 1px solid #0079bf;
@@ -61,7 +66,8 @@
       box-shadow: 0 0 2px 0 #0284c6;
     }
   }
-  .modal-close{
+
+  .modal-close {
     float: right;
     color: rgba(0, 0, 0, 0.3);
     font-size: 30px;
@@ -72,24 +78,29 @@
 
 .modal-content {
   clear: both;
-  .left-content{
+
+  .left-content {
     float: left;
     width: 70%;
-    .card-in-list{
+
+    .card-in-list {
       color: #838c91;
       text-align: left;
       clear: both;
       padding-left: 40px;
       padding-top: 10px;
-      span{
+
+      span {
         text-decoration: underline;
         cursor: pointer;
       }
-      span:hover{
+
+      span:hover {
         color: #4d4d4d;
       }
     }
-    textarea.card-comment{
+
+    textarea.card-comment {
       background: #fff;
       font-family: Helvetica,sans-serif;
       position: relative;
@@ -109,7 +120,8 @@
       margin: 4px 4px 12px 0;
       resize: none;
     }
-    .user-profile-pic{
+
+    .user-profile-pic {
       background: #d6dadc;
       width: 30px;
       height: 30px;
@@ -120,183 +132,274 @@
       line-height: 30px;
       margin-right: 10px;
     }
-    .modal-section-left{
+
+    .modal-section-left {
       max-width: 20%;
       float: left;
     }
-    .modal-section-right{
+
+    .modal-section-right {
       width: 90%;
       float: left;
     }
-    .user-name-card-comment{
+
+    .user-name-card-comment {
       font-weight: bold;
     }
-    .user-name-card-activity{
+
+    .user-name-card-activity {
       font-weight: bold;
       float: left;
       margin-right: 5px;
     }
-    .card-comment-text{
-        background: #fff;
-        float: none;
-        width: auto;
-        padding: 10px;
-        background-color: #fff;
-        border-radius: 3px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.23);
-        box-shadow: 0 1px 2px rgba(0,0,0,.23);
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        clear: both;
-        display: inline-block;
-        margin: 6px 2px 6px 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-        clear: both;
-    }
-    .card-activity-text{
-      font-size: 14px;
 
+    .card-comment-text {
+      background: #fff;
+      float: none;
+      width: auto;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 3px;
+      -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.23);
+      box-shadow: 0 1px 2px rgba(0,0,0,.23);
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      clear: both;
+      display: inline-block;
+      margin: 6px 2px 6px 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      clear: both;
     }
-    .card-comment-time-ago,.card-activity-time-ago{
+
+    .card-activity-text {
+      font-size: 14px;
+    }
+
+    .card-activity-time-ago,
+    .card-comment-time-ago {
       color: #838c91;
       font-size: 13px;
     }
-    .card-line{
+
+    .card-line {
       background: #e2e4e6;
       clear: both;
       height: 1px;
       width: 100%;
     }
-    // Checklists
-    .checklist-progress-bar-holder{
-      margin-bottom: 6px;
-      position: relative;
-      span{
-        color: #838c91;
-        font-size: 11px;
-        line-height: 10px;
-        position: absolute;
-        left: 0;
-        top: -1px;
-        text-align: center;
-        width: 38px;
-      }
-      .checklist-progress-bar{
-        background: #d6dadc;
-        border-radius: 5px;
-        clear: both;
-        height: 8px;
-        margin: 0 0 0 38px;
-        overflow: hidden;
-        position: relative;
-      }
-      .checklist-progress{
-        background: #5ba4cf;
-        bottom: 0;
-        left: 0;
-        position: absolute;
-        top: 0;
-        -webkit-transition: width .14s ease-in,background .14s ease-in;
-        transition: width .14s ease-in,background .14s ease-in;
-      }
-    }
-    .checklist-progress-bar-holder.complete .checklist-progress{
-      background: #61bd4f;
-    }
-    .checklist-item{
-      clear: both;
-      padding-left: 26px;
-      position: relative;
-      border-radius: 3px;
-      -webkit-transform-origin: left bottom;
-      transform-origin: left bottom;
-      -webkit-transition-property: opacity,height,padding,margin,-webkit-transform;
-      transition-property: opacity,height,padding,margin,-webkit-transform;
-      transition-property: transform,opacity,height,padding,margin;
-      transition-property: transform,opacity,height,padding,margin,-webkit-transform;
-      -webkit-transition-duration: .14s;
-      transition-duration: .14s;
-      -webkit-transition-timing-function: ease-in;
-      transition-timing-function: ease-in;
-      .checkbox{
-        background: #fff;
-        background-color: rgb(255, 255, 255);
-        background-image: none;
-        background-repeat: repeat;
-        background-attachment: scroll;
-        background-clip: border-box;
-        background-origin: padding-box;
-        background-position-x: 0%;
-        background-position-y: 0%;
-        background-size: auto auto;
-        border-radius: 3px;
-        -webkit-box-shadow: 0 2px 3px rgba(0,0,0,.1);
-        box-shadow: 0 2px 3px rgba(0,0,0,.1);
-        border: 1px solid #d6dadc;
-            border-bottom-color: rgb(214, 218, 220);
-        border-bottom-color: rgb(214, 218, 220);
-        border-bottom-color: #c4c9cc;
-        font-weight: 700;
-        position: absolute;
-        left: 5px;
-        line-height: 18px;
-        overflow: hidden;
-        text-align: center;
-        text-indent: 100%;
-        top: -1px;
-        height: 18px;
-        width: 18px;
-        white-space: nowrap;
-        margin-top: 5px;
-
-        .icon-check {
-          font-weight: 700;
-          text-align: center;
-          text-indent: 100%;
-          white-space: nowrap;
-          font-size: 12px;
-          height: 18px;
-          font-size: 12px;
-          line-height: 18px;
-          width: 19px;
-        }
-      }
-      .checkbox:hover .icon-check,.checkbox.complete .icon-check{
-        color: #d6dadc;
-        cursor: pointer;
-        text-indent: 0;
-      }
-      .checkbox.complete + .checklist-item-name-holder .checklist-item-name{
-        color: #838c91;
-        font-style: italic;
-        text-decoration: line-through;
-      }
-      .checkbox.incomplete .icon-check{
-        text-indent: 100%;
-      }
-      .checklist-item-name-holder{
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex: 1;
-        padding: 5px 0 5px 12px;
-        .checklist-item-name{
-          min-height: 18px;
-          margin-bottom: 0;
-          font-size: 14px;
-          line-height: 19px;
-          font-weight: 400;
-        }
-      }
-
-
-    }
-
-    // Checklists
-
   }
-  .modal-section-header{
+  // ************
+  // Checklists
+  // ************
+  .checklist-progress-bar-holder {
+    margin-bottom: 6px;
+    position: relative;
+
+    span {
+      color: #838c91;
+      font-size: 11px;
+      line-height: 10px;
+      position: absolute;
+      left: 0;
+      top: -1px;
+      text-align: center;
+      width: 38px;
+    }
+
+    .checklist-progress-bar {
+      background: #d6dadc;
+      border-radius: 5px;
+      clear: both;
+      height: 8px;
+      margin: 0 0 0 38px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .checklist-progress {
+      background: #5ba4cf;
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      top: 0;
+      -webkit-transition: width 0.14s ease-in,background 0.14s ease-in;
+      transition: width 0.14s ease-in,background 0.14s ease-in;
+    }
+  }
+
+  .checklist-progress-bar-holder.complete .checklist-progress {
+    background: #61bd4f;
+  }
+
+  .checklist-item {
+    clear: both;
+    padding-left: 26px;
+    position: relative;
+    border-radius: 3px;
+    -webkit-transform-origin: left bottom;
+    transform-origin: left bottom;
+    -webkit-transition-property: opacity,height,padding,margin,-webkit-transform;
+    transition-property: opacity,height,padding,margin,-webkit-transform;
+    transition-property: transform,opacity,height,padding,margin;
+    transition-property: transform,opacity,height,padding,margin,-webkit-transform;
+    -webkit-transition-duration: 0.14s;
+    transition-duration: 0.14s;
+    -webkit-transition-timing-function: ease-in;
+    transition-timing-function: ease-in;
+
+    .checkbox {
+      background: #fff;
+      background-color: rgb(255, 255, 255);
+      background-image: none;
+      background-repeat: repeat;
+      background-attachment: scroll;
+      background-clip: border-box;
+      background-origin: padding-box;
+      background-position-x: 0;
+      background-position-y: 0;
+      background-size: auto auto;
+      border-radius: 3px;
+      -webkit-box-shadow: 0 2px 3px rgba(0,0,0,.1);
+      box-shadow: 0 2px 3px rgba(0,0,0,.1);
+      border: 1px solid #d6dadc;
+      border-bottom-color: rgb(214, 218, 220);
+      border-bottom-color: rgb(214, 218, 220);
+      border-bottom-color: #c4c9cc;
+      font-weight: 700;
+      position: absolute;
+      left: 5px;
+      line-height: 18px;
+      overflow: hidden;
+      text-align: center;
+      text-indent: 100%;
+      top: -1px;
+      height: 18px;
+      width: 18px;
+      white-space: nowrap;
+      margin-top: 5px;
+
+      .icon-check {
+        font-weight: 700;
+        text-align: center;
+        text-indent: 100%;
+        white-space: nowrap;
+        font-size: 12px;
+        height: 18px;
+        font-size: 12px;
+        line-height: 18px;
+        width: 19px;
+      }
+    }
+
+    .checkbox.complete .icon-check,
+    .checkbox:hover .icon-check {
+      color: #d6dadc;
+      cursor: pointer;
+      text-indent: 0;
+    }
+
+    .checkbox.complete + .checklist-item-name-holder .checklist-item-name {
+      color: #838c91;
+      font-style: italic;
+      text-decoration: line-through;
+    }
+
+    .checkbox.incomplete .icon-check {
+      text-indent: 100%;
+    }
+
+    .checklist-item-name-holder {
+      -webkit-box-flex: 1;
+      -ms-flex: 1;
+      flex: 1;
+      padding: 5px 0 5px 12px;
+
+      .checklist-item-name {
+        min-height: 18px;
+        margin-bottom: 0;
+        font-size: 14px;
+        line-height: 19px;
+        font-weight: 400;
+      }
+    }
+  }
+  // ************
+  // Checklists
+  // ************
+  // ************
+  // Labels
+  // ************
+  .card-label-holder {
+    padding-left: 10px;
+
+    .card-label-item {
+      height: 35px;
+      width: 87%;
+      display: block;
+      border-radius: 4px;
+      float: left;
+
+      .label-hover-secondary-hex {
+        background: #004fba;
+        height: 100%;
+        display: none;
+        width: 15px;
+        border-radius: 4px;
+        margin-left: -10px;
+        transition: all 0.5s;
+      }
+    }
+
+    .card-label-item:hover .label-hover-secondary-hex {
+      display: block;
+    }
+  }
+
+  .card-label-edit-holder {
+    width: 35px;
+    text-align: center;
+    height: 35px;
+    display: block;
+    float: right;
+    color: #999;
+    border-radius: 4px;
+
+    .icon-edit {
+      font-size: 15px;
+      margin-top: 10px;
+    }
+  }
+
+  .card-label-edit-holder:hover {
+    background: #d6dadc;
+    color: #111;
+    cursor: pointer;
+  }
+
+  .color-item {
+    height: 35px;
+    width: 15%;
+    float: left;
+    display: block;
+    margin-right: 5%;
+    margin-bottom: 5%;
+    border-radius: 5%;
+    cursor: pointer;
+    .icon-check{
+      color: #fff;
+      height: 15px;
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+  }
+  // ************
+  // Labels
+  // ************
+  .modal-section-header {
     clear: both;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -304,7 +407,8 @@
     min-height: 20px;
     font-size: 20px;
     font-weight: bold;
-    .icon{
+
+    .icon {
       color: #999;
       float: left;
       font-size: 18px;
@@ -312,10 +416,12 @@
       padding-right: 10px;
       width: 20px;
     }
-    span{
+
+    span {
       font-size: 20px;
     }
-    .right-text{
+
+    .right-text {
       margin-top: 4px;
       font-size: 14px;
       font-weight: normal;
@@ -325,15 +431,18 @@
       cursor: pointer;
       margin-right: 20px;
     }
-    .right-text:hover{
+
+    .right-text:hover {
       color: #4d4d4d;
     }
   }
-  .right-content{
+
+  .right-content {
     padding-left: 10px;
     float: left;
     width: 25%;
-    .modal-button{
+
+    .modal-button {
       width: 100%;
       background: #e2e4e6;
       -webkit-box-shadow: 0 1px 0 0 #c4c9cc;
@@ -357,7 +466,8 @@
       white-space: nowrap;
       border-radius: 3px;
       font-weight: 700;
-      .icon{
+
+      .icon {
         float: left;
         height: 18px;
         font-size: 12px;
@@ -365,25 +475,19 @@
         width: 19px;
         color: #999;
       }
-      span{
+
+      span {
         float: left;
         font-size: 14px;
         margin-top: 3px;
       }
     }
+
     .modal-button:hover {
       background: #cdd2d4;
       -webkit-box-shadow: 0 1px 0 0 #a5acb0;
       box-shadow: 0 1px 0 0 #a5acb0;
       color: #4c4c4c;
     }
-  }
-}
-.card-label-holder{
-  .card-label-item{
-    height: 35px;
-    width: 100%;
-    display: block;
-    border-radius: 4px;
   }
 }

@@ -44,11 +44,13 @@
       .icon.icon-member
       %span
         Members
+    -# TODO add members tab
     .modal-button.show-body-clicks.hide-body-clicks-btn{onclick:"$('#labels-form').show();"}
       .icon.icon-label
       Labels
     #labels-form.z-10.card-form-holder.hide-body-clicks.stop-show-body-clicks{style:"display:none;"}
-      .card-form-header
+      .card-form-header.label-edit-form-holder
+      .card-form-header.label-form-holder
         .card-form-title
           Labels
           .close-button-holder{onclick:"$('#labels-form').hide();"}
@@ -57,10 +59,9 @@
           %input{placeholder:"Search Labels"}
         .clear-10
         - @board.labels.each do |label|
-          .card-label-holder
-            .card-label-item{style:"background:#{label.color.hex_code}"}
-              = label.name
+          = render label
           .clear-5
+
     .modal-button.show-body-clicks.hide-body-clicks-btn{onclick:"$('#create-checklist-form').show();$('#ChecklistName').focus();"}
       .icon.icon-checklist
       %span
@@ -82,26 +83,32 @@
       .icon.icon-clock
       %span
         Due Date
+    -# TODO add due date tab
     .modal-button
       .icon.icon-attachment
       %span
         Attachment
+    -# TODO add attachments tab
     .modal-section-header
       Actions
     .modal-button
       .icon.icon-move
       %span
         Move
+    -# TODO add action functionality
     .modal-button
       .icon.icon-card
       %span
         Copy
+    -# TODO add action functionality
     .modal-button
       .icon.icon-subscribe
       %span
         Subscribe
+    -# TODO add action functionality
     .modal-button
       .icon.icon-archive
       %span
         Achive
+    -# TODO add action functionality
   .clear-10

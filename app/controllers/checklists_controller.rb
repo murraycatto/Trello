@@ -3,8 +3,7 @@ class ChecklistsController < ApplicationController
   before_action :set_card, :set_format
   def create
     @checklist = @card.checklists.new(checklist_params)
-    return unless @checklist.save
-    render :create, layout: false
+    render :create, layout: false if @checklist.save
   end
 
   private
