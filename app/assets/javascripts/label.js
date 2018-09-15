@@ -9,18 +9,18 @@ function getEditLabel(LabelID) {
   });
 }
 
-function selectLabelColor(ColorID){
+function selectLabelColor(ColorID) {
   $('.color-item .icon-check').hide();
-  $('#LabelColor'+ColorID+ ' .icon-check').show();
+  $('#LabelColor' + ColorID + ' .icon-check').show();
   $('#LabelColorID').val(ColorID);
 }
 
-function updateLabelColors(LabelID,HexCode) {
+function updateLabelColors(LabelID, HexCode) {
   console.log(LabelID);
   console.log(HexCode);
-  $(".label-item"+LabelID).each(function(i,el){
+  $(".label-item" + LabelID).each(function(i, el) {
     console.log($(el));
-    $(el).css('background',HexCode);
+    $(el).css('background', HexCode);
   });
   $(".label-edit-form-holder .small-modal-back-button").click();
 }

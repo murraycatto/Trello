@@ -1,0 +1,23 @@
+version: '3'
+services:
+  web:
+    container_name: trello
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/Trello
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    links:
+      - db
+    tty: true
+    stdin_open: true
+    env_file:
+      - .env
+  db:
+    container_name: trello_db
+    image: postgres
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
