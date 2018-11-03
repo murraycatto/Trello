@@ -1,15 +1,14 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: trello_db
-  username: postgres
-  password:
+  host: "<%=ENV['POSTRES_HOST']%>"
+  username: "<%=ENV['POSTRES_USERNAME']%>"
+  password: "<%=ENV['POSTRES_PASSWORD']%>"
   pool: 5
 
 development:
   <<: *default
   database: trello_development
-
 
 test:
   <<: *default
